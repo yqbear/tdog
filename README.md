@@ -1,17 +1,6 @@
 # tdog
-TDOG is a lightweight, portable, and open source C++ xUnit Testing Framework.
 
-#############################################################################
-PROJECT     : TDOG C++ xUnit Testing Framework
-COPYRIGHT   : Andy Thomas (c) 2016
-LICENSE     : Apache 2.0
-WEBSITE     : bigangrydog.com
-#############################################################################
-
-
-###############################
 ABOUT TDOG
-###############################
 
 TDOG is a lightweight, portable, and open source C++ xUnit Testing
 Framework. It features:
@@ -41,9 +30,7 @@ It can be found at: http://bigangrydog.com
 See the "index.html" under "doc" for documentation.
 
 
-###############################
 BUILDING
-###############################
 
 To build the static library on Linux, from the "tdog" directory, call:
 
@@ -77,16 +64,12 @@ a self-test of the framework. Test reports will be generated to the
 this is the working directory.
 
 
-###############################
 RELEASE NOTES
-###############################
 
 Version 3.0 - First public release of TDOG.
 
 
-###############################
 PLATFORMS
-###############################
 
 I've built and tested TDOG under the following platforms:
 
