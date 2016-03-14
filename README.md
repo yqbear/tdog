@@ -2,10 +2,10 @@
 
 ABOUT TDOG
 
-TDOG is a lightweight, portable, and open source C++ xUnit Testing
+TDOG is a lightweight, portable and open source C++ xUnit Testing
 Framework. It features:
 
- - Macros for easy test case creation
+ - Macros for easy unit test creation
  - C++ namespaced test suites (test groups)
  - Test fixtures
  - Test, suite & global level setup/teardown
