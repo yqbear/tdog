@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\tdog">
+      <UniqueIdentifier>{421a3152-d7e9-4c7f-b208-c9a76d9d09d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tdog\private">
+      <UniqueIdentifier>{b35e7d62-a7ff-4c3b-86ea-44bbe711cf46}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\inc\tdog.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\tdog\runner.hpp">
+      <Filter>Header Files\tdog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\tdog\types.hpp">
+      <Filter>Header Files\tdog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\tdog\private\basic_test.hpp">
+      <Filter>Header Files\tdog\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\tdog\private\compat.hpp">
+      <Filter>Header Files\tdog\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\tdog\private\run_helper.hpp">
+      <Filter>Header Files\tdog\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\tdog\private\run_interface.hpp">
+      <Filter>Header Files\tdog\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\tdog\private\suite_manager.hpp">
+      <Filter>Header Files\tdog\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\tdog\private\test_case.hpp">
+      <Filter>Header Files\tdog\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\tdog\private\test_fixture.hpp">
+      <Filter>Header Files\tdog\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_reporter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\html_reporter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\null_reporter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\test_list.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\text_reporter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\util.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xml_reporter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\basic_reporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\html_reporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\null_reporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\run_helper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\runner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\suite_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test_list.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\text_reporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xml_reporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,198 @@
+#############################################################################
+ADXM         : Angry Dog Cross-platform Make (5.3)
+DESCRIPTION  : Lightweight, general purpose & reusable makefile for GNU make
+COPYRIGHT    : Andy Thomas (c) 2016
+WEBSITE      : bigangrydog.com
+LICENSE      : Apache 2.0
+#############################################################################
+
+
+################################
+INTRODUCTION
+################################
+
+ADXM is a lightweight, general purpose and reusable makefile targeting
+GNU make-gcc on LINUX, and mingw-gcc on Windows. It provides a single makefile
+implementation, which utilises one or more user configuration (*.conf) files.
+
+It has the following features:
+
+  - Clean design, comprising entirely a makefile implementation.
+  - Able to build binaries, libraries and shared objects (DLLs on Windows).
+  - Does not depend on other tools, such as MSYS, GMSL, Perl etc.
+  - Can auto-detect build the platform, including 64 and 32 bit architectures.
+  - Provides release and debug targets, and a comprehensive range of build goals.
+  - Supports Windows resouce compilation using "windres".
+  - Pre-build, post-build, distribution and install steps.
+
+Source and build directories are expected to reside relative to the makefile,
+and would typically include: "src", "obj" and "out" (the names are configurable).
+Additionally, external include directories and library search paths can be
+specified. Pathnames containing spaces are not supported.
+
+To call make to build a project, you would use something like:
+
+  make* -f makefile rebuild CONF=makefile.conf TARGET=debug ARCH=64 PLATOS=fedora
+
+This will call GNU make with the file "makefile", which will be supplied with
+the list of options specified.
+
+Or, even just the following will work:
+
+  make
+
+In this case, GNU make will use "makefile" as its default, while the makefile
+itself will use "makefile.conf" as the default configuration, with values set
+automatically.
+
+*Use mingw32-make under Windows.
+
+
+################################
+MAKEFILE COMPONENTS
+################################
+
+Components include:
+
+  makefile : This is the default name of the makefile implementation, and the file to be
+  called using make (or mingw32-make.exe). This file should NOT normally be modified.
+  Instead, a configuration file is supplied using the command line variable "CONF".
+
+  makefile.conf : This is the name of the default configuration file which defines
+  the build options. This file includes detailed documentation for each parameter.
+  The file should be used as a basis for any project. A complex build project may
+  comprise multiple configuration files.
+
+  makevars.conf : An additional file which supplies common values to multiple
+  configurations within the project, such as the application version number.
+
+Complex projects, comprising multiple modules, may share a single makefile
+implementation but utilise several configuration files with dependencies. For example,
+building a binary file may necessitate that a library it links to is built first.
+
+A typical project may comprise the following makefiles:
+
+  - makefile
+  - make-app.conf (executable)
+  - make-lib.conf (static library)
+  - make-so.conf (a DLL under MSW)
+  - makevars.conf (common variables)
+
+The "app" configuration, for example, may trigger the building of the other two.
+
+
+################################
+COMMAND USAGE
+################################
+
+Usage: make -f makefile [GOALS] CONF=[makeconf] TARGET=[release/debug/all]
+       ARCH=[64/32/all] PLATOS=[custom] SRCFILES=[files] RUNOPTS=[options]
+
+GOALS :
+  all           - Make and link the output, default. Calls pre and post-build
+                  steps, and make dependencies.
+  compile       - Make sources but does not link or call pre or post-build
+                  steps, or make dependencies.
+  link          - Link (or archive) object files, but does not call pre or
+                  post-build steps, or make dependencies.
+  clean         - Clean intermediary object files and output files, but not those of
+                  make dependencies.
+  cleanall      - Clean intermediary object and output files, and those of
+                  make dependencies.
+  rebuild       - Rebuilds current project. Equivalent to: clean compile link.
+                  Calls pre and post-build steps, but NOT make dependencies.
+  rebuildall    - Rebuilds all. Equivalent to: cleanall all. Calls pre and
+                  post-build steps, and make dependencies.
+  install       - Rebuilds all followed by the install command.
+  dist          - Rebuilds all followed by the distribution command.
+  makedirs      - Create object and output directories required by the build.
+                  This is normally called automatically by compile commands.
+  prebuild      - Perform the pre-build step only.
+  postbuild     - Perform the post-build step only.
+  diststep      - Perform the create distribution step only.
+  installstep   - Perform the install step only.
+  run           - Execute the binary output with the RUNOPTS command options.
+  dbg           - Execute the binary under the debugger with the RUNOPTS options.
+  checkconf     - Check input and config file for errors, otherwise does nothing.
+  listvars      - Output important configuration variables.
+  listvarsall   - Output all configuration variables, plus internal variables.
+  help          - Display key usage options.
+  version       - Display ADXM version information.
+
+CONF :
+  The make configuration filename. If omitted, defaults to: "makefile.conf"
+  (then "makeconf.mak"). Only, a single value can be supplied, but multiple
+  configurations can be built by creating a "master" project with multiple
+  dependencies.
+
+TARGET :
+  Build target as either "release" or "debug", or a case variation of.
+  Use "all" to build both. The default value is "release".
+
+ARCH :
+  Target architecture, either "32" or "64". Use "all" to build both. The default is
+  that of the build machine. Although the bit architecture will usually be detected
+  automatically from the build machine, it may be useful to specify it explicitly for
+  projects targeting multiple architectures. The value will automatically be supplied
+  to the compiler using the -m64 and -m32 compiler options.
+
+PLATOS :
+  Target platform OS. This will be provided for use in configuration files
+  as a variable that will, if omitted, default to either "msw" or "nix",
+  according to the build machine.
+
+SRCFILES :
+  Source filename(s) to make for use with "compile" command. Filenames must be
+  either full paths withint the root source directory, or relative to it. Wrap multile
+  items in quotes. If omitted, all source files will be re-made.
+
+RUNOPTS :
+  Command line options to pass to the binary on execution via the "run" and "dbg" goals.
+
+
+################################
+CONFIGURATION SECTIONS
+################################
+
+The following sections outline key areas within the configuration (i.e. makefile.conf).
+See the configuration file itself for further information, where each parameter is
+documented.
+
+PROJECT CONFIGURATION
+This section defines key project information, such as the build name (BUILD_BASENAME)
+and build type, which can be a binary file (bin), static library (lib), shared
+object (so) or master (mst) type. A shared object build will create an "so" file under LINUX,
+and a "DLL" with a corresponding import library under Windows. A master build type
+is simply used to build multiple configurations (it generates nothing itself).
+
+DIRECTORY LOCATIONS
+This is where build and source locations are provided, such as the "src", "bin",
+"obj" and include directories.
+
+SOURCE FILES
+Source files are given in this section, and may be expressed in terms of wildcards,
+so that new source files are automatically included as they are created. Platform
+specific sources, i.e. for LINUX and Windows, can be specified separately. (Note that
+method is to specify source files, i.e. *.cpp, rather than object output files --
+object filenames are derived from their sources).
+
+COMPILER/LINKER OPTIONS
+Compiler and linker options are broken down into sections for convenience and
+portability. Macro definitions, library dependencies and compiler optimisation flags
+are given here.
+
+PRE/POST BUILD STEPS
+This is where makefile dependencies, along with pre and post build steps are specified.
+Additional install and distribution steps may also be given.
+
+MISCELLANEOUS
+Finally, a few minor options live here.
+
+
+################################
+COMMON VARIABLES
+################################
+
+An additional configuration file (i.e. makevars.conf) used to provide a common place to set
+custom application name and version variables for your application, along with any other
+variables you may wish to declare.

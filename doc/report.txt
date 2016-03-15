@@ -1,0 +1,1275 @@
+-----------------------------------------------------------------
+PROJECT: TDOG C++ xUnit Testing Framework
+Version: 3.0
+Hostname: STARONE
+Platform: LINUX 64-bit
+Start Time: 2016-03-15 09:04:33
+-----------------------------------------------------------------
+
+Reports in TEXT, HTML and XML format will be generated
+under './reports'. This location should pre-exist in the
+working directory.
+
+-----------------------------------------------------------------
+DEFAULT SUITE
+-----------------------------------------------------------------
+setup_global_01 : TEST STARTED: 2016-03-15 09:04:33
+setup_global_01 : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/main.cpp [53]
+setup_global_01 : TEST TYPE: TEST
+setup_global_01 : OK: ASSERT_NOT( g_test_called ) [58]
+setup_global_01 : Completed in 0 sec, 0 ms, asserts 1, failures 0
+setup_global_01 : PASS (OK)
+
+setup_global_02 : TEST STARTED: 2016-03-15 09:04:33
+setup_global_02 : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/main.cpp [61]
+setup_global_02 : TEST TYPE: TEST
+setup_global_02 : OK: ASSERT( g_setup_called ) [64]
+setup_global_02 : OK: ASSERT_NOT( g_test_called ) [65]
+setup_global_02 : Completed in 0 sec, 0 ms, asserts 2, failures 0
+setup_global_02 : PASS (OK)
+
+default_namespace_test : TEST STARTED: 2016-03-15 09:04:33
+default_namespace_test : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/main.cpp [68]
+default_namespace_test : TEST TYPE: TEST
+default_namespace_test : Completed in 0 sec, 1 ms, asserts 0, failures 0
+default_namespace_test : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : assert_suite
+-----------------------------------------------------------------
+assert_suite::assert_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [465]
+assert_suite::assert_positive : AUTHOR: Andy Thomas
+assert_suite::assert_positive : TEST TYPE: TEST
+assert_suite::assert_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert) ) ) [471]
+assert_suite::assert_positive : OK: ASSERT_EQ( NPOS, txt.find("-cond") ) [493]
+assert_suite::assert_positive : OK: ASSERT_NEQ( NPOS, txt.find("ASSERT") ) [494]
+assert_suite::assert_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_msg()") ) [495]
+assert_suite::assert_positive : OK: ASSERT_EQ( NPOS, htm.find("-cond") ) [496]
+assert_suite::assert_positive : OK: ASSERT_NEQ( NPOS, htm.find("ASSERT") ) [497]
+assert_suite::assert_positive : OK: ASSERT_NEQ( NPOS, htm.find("assert_msg()") ) [498]
+assert_suite::assert_positive : OK: ASSERT_EQ( NPOS, xml.find("-cond") ) [499]
+assert_suite::assert_positive : OK: ASSERT_NEQ( NPOS, xml.find("ASSERT") ) [500]
+assert_suite::assert_positive : OK: ASSERT_NEQ( NPOS, xml.find("assert_msg()") ) [501]
+assert_suite::assert_positive : Completed in 0 sec, 4 ms, asserts 10, failures 0
+assert_suite::assert_positive : PASS (OK)
+
+assert_suite::assert_not_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_not_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [504]
+assert_suite::assert_not_positive : AUTHOR: Andy Thomas
+assert_suite::assert_not_positive : TEST TYPE: TEST
+assert_suite::assert_not_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_not) ) ) [510]
+assert_suite::assert_not_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [521]
+assert_suite::assert_not_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_not_msg()") ) [522]
+assert_suite::assert_not_positive : Completed in 0 sec, 3 ms, asserts 3, failures 0
+assert_suite::assert_not_positive : PASS (OK)
+
+assert_suite::assert_eq_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_eq_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [525]
+assert_suite::assert_eq_positive : AUTHOR: Andy Thomas
+assert_suite::assert_eq_positive : TEST TYPE: TEST
+assert_suite::assert_eq_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_eq) ) ) [531]
+assert_suite::assert_eq_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [542]
+assert_suite::assert_eq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(int)") ) [543]
+assert_suite::assert_eq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(unsigned)") ) [544]
+assert_suite::assert_eq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(string)") ) [545]
+assert_suite::assert_eq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(wstring)") ) [546]
+assert_suite::assert_eq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(vector)") ) [547]
+assert_suite::assert_eq_positive : Completed in 0 sec, 3 ms, asserts 7, failures 0
+assert_suite::assert_eq_positive : PASS (OK)
+
+assert_suite::assert_neq_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_neq_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [550]
+assert_suite::assert_neq_positive : AUTHOR: Andy Thomas
+assert_suite::assert_neq_positive : TEST TYPE: TEST
+assert_suite::assert_neq_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_neq) ) ) [556]
+assert_suite::assert_neq_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [567]
+assert_suite::assert_neq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(int)") ) [568]
+assert_suite::assert_neq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(unsigned)") ) [569]
+assert_suite::assert_neq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(string)") ) [570]
+assert_suite::assert_neq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(wstring)") ) [571]
+assert_suite::assert_neq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(vector)") ) [572]
+assert_suite::assert_neq_positive : Completed in 0 sec, 4 ms, asserts 7, failures 0
+assert_suite::assert_neq_positive : PASS (OK)
+
+assert_suite::assert_lt_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_lt_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [575]
+assert_suite::assert_lt_positive : AUTHOR: Andy Thomas
+assert_suite::assert_lt_positive : TEST TYPE: TEST
+assert_suite::assert_lt_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_lt) ) ) [581]
+assert_suite::assert_lt_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [592]
+assert_suite::assert_lt_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_lt_msg(37)") ) [593]
+assert_suite::assert_lt_positive : Completed in 0 sec, 3 ms, asserts 3, failures 0
+assert_suite::assert_lt_positive : PASS (OK)
+
+assert_suite::assert_lte_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_lte_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [596]
+assert_suite::assert_lte_positive : AUTHOR: Andy Thomas
+assert_suite::assert_lte_positive : TEST TYPE: TEST
+assert_suite::assert_lte_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_lte) ) ) [602]
+assert_suite::assert_lte_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [613]
+assert_suite::assert_lte_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_lte_msg(37)") ) [614]
+assert_suite::assert_lte_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_lte_msg(36)") ) [615]
+assert_suite::assert_lte_positive : Completed in 0 sec, 4 ms, asserts 4, failures 0
+assert_suite::assert_lte_positive : PASS (OK)
+
+assert_suite::assert_gt_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_gt_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [618]
+assert_suite::assert_gt_positive : AUTHOR: Andy Thomas
+assert_suite::assert_gt_positive : TEST TYPE: TEST
+assert_suite::assert_gt_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_gt) ) ) [624]
+assert_suite::assert_gt_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [635]
+assert_suite::assert_gt_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_gt_msg(35)") ) [636]
+assert_suite::assert_gt_positive : Completed in 0 sec, 3 ms, asserts 3, failures 0
+assert_suite::assert_gt_positive : PASS (OK)
+
+assert_suite::assert_gte_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_gte_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [639]
+assert_suite::assert_gte_positive : AUTHOR: Andy Thomas
+assert_suite::assert_gte_positive : TEST TYPE: TEST
+assert_suite::assert_gte_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_gte) ) ) [645]
+assert_suite::assert_gte_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [656]
+assert_suite::assert_gte_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_gte_msg(35)") ) [657]
+assert_suite::assert_gte_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_gte_msg(36)") ) [658]
+assert_suite::assert_gte_positive : Completed in 0 sec, 3 ms, asserts 4, failures 0
+assert_suite::assert_gte_positive : PASS (OK)
+
+assert_suite::assert_double_eq_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_double_eq_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [661]
+assert_suite::assert_double_eq_positive : AUTHOR: Andy Thomas
+assert_suite::assert_double_eq_positive : TEST TYPE: TEST
+assert_suite::assert_double_eq_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_double_eq) ) ) [667]
+assert_suite::assert_double_eq_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [678]
+assert_suite::assert_double_eq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_double_eq_msg()") ) [679]
+assert_suite::assert_double_eq_positive : Completed in 0 sec, 3 ms, asserts 3, failures 0
+assert_suite::assert_double_eq_positive : PASS (OK)
+
+assert_suite::assert_double_neq_positive : TEST STARTED: 2016-03-15 09:04:33
+assert_suite::assert_double_neq_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [682]
+assert_suite::assert_double_neq_positive : AUTHOR: Andy Thomas
+assert_suite::assert_double_neq_positive : TEST TYPE: TEST
+assert_suite::assert_double_neq_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_double_neq) ) ) [688]
+assert_suite::assert_double_neq_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [699]
+assert_suite::assert_double_neq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_double_neq_msg()") ) [700]
+assert_suite::assert_double_neq_positive : Completed in 0 sec, 3 ms, asserts 3, failures 0
+assert_suite::assert_double_neq_positive : PASS (OK)
+
+assert_suite::assert_stric_eq_positive : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_stric_eq_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [703]
+assert_suite::assert_stric_eq_positive : AUTHOR: Andy Thomas
+assert_suite::assert_stric_eq_positive : TEST TYPE: TEST
+assert_suite::assert_stric_eq_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_stric_eq) ) ) [709]
+assert_suite::assert_stric_eq_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [720]
+assert_suite::assert_stric_eq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_stric_eq_msg()") ) [721]
+assert_suite::assert_stric_eq_positive : Completed in 0 sec, 3 ms, asserts 3, failures 0
+assert_suite::assert_stric_eq_positive : PASS (OK)
+
+assert_suite::assert_stric_neq_positive : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_stric_neq_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [724]
+assert_suite::assert_stric_neq_positive : AUTHOR: Andy Thomas
+assert_suite::assert_stric_neq_positive : TEST TYPE: TEST
+assert_suite::assert_stric_neq_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_stric_neq) ) ) [730]
+assert_suite::assert_stric_neq_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [741]
+assert_suite::assert_stric_neq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_stric_neq_msg()") ) [742]
+assert_suite::assert_stric_neq_positive : Completed in 0 sec, 3 ms, asserts 3, failures 0
+assert_suite::assert_stric_neq_positive : PASS (OK)
+
+assert_suite::assert_array_eq_positive : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_array_eq_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [745]
+assert_suite::assert_array_eq_positive : AUTHOR: Andy Thomas
+assert_suite::assert_array_eq_positive : TEST TYPE: TEST
+assert_suite::assert_array_eq_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_array_eq) ) ) [751]
+assert_suite::assert_array_eq_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [762]
+assert_suite::assert_array_eq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_array_eq_msg(array)") ) [763]
+assert_suite::assert_array_eq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_array_eq_msg(vector)") ) [764]
+assert_suite::assert_array_eq_positive : Completed in 0 sec, 3 ms, asserts 4, failures 0
+assert_suite::assert_array_eq_positive : PASS (OK)
+
+assert_suite::assert_array_neq_positive : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_array_neq_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [767]
+assert_suite::assert_array_neq_positive : AUTHOR: Andy Thomas
+assert_suite::assert_array_neq_positive : TEST TYPE: TEST
+assert_suite::assert_array_neq_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_array_neq) ) ) [773]
+assert_suite::assert_array_neq_positive : OK: ASSERT_EQ( NPOS, txt.find("-act") ) [784]
+assert_suite::assert_array_neq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_array_neq_msg(array)") ) [785]
+assert_suite::assert_array_neq_positive : OK: ASSERT_NEQ( NPOS, txt.find("assert_array_neq_msg(vector)") ) [786]
+assert_suite::assert_array_neq_positive : Completed in 0 sec, 3 ms, asserts 4, failures 0
+assert_suite::assert_array_neq_positive : PASS (OK)
+
+assert_suite::assert_throw_positive : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_throw_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [789]
+assert_suite::assert_throw_positive : AUTHOR: Andy Thomas
+assert_suite::assert_throw_positive : TEST TYPE: TEST
+assert_suite::assert_throw_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_throw) ) ) [795]
+assert_suite::assert_throw_positive : Completed in 0 sec, 3 ms, asserts 1, failures 0
+assert_suite::assert_throw_positive : PASS (OK)
+
+assert_suite::assert_no_throw_positive : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_no_throw_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [802]
+assert_suite::assert_no_throw_positive : AUTHOR: Andy Thomas
+assert_suite::assert_no_throw_positive : TEST TYPE: TEST
+assert_suite::assert_no_throw_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(positive_suite::assert_no_throw) ) ) [808]
+assert_suite::assert_no_throw_positive : Completed in 0 sec, 2 ms, asserts 1, failures 0
+assert_suite::assert_no_throw_positive : PASS (OK)
+
+assert_suite::assert_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [818]
+assert_suite::assert_negative : AUTHOR: Andy Thomas
+assert_suite::assert_negative : TEST TYPE: TEST
+assert_suite::assert_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert) ) ) [824]
+assert_suite::assert_negative : OK: ASSERT_EQ( NPOS, txt.find("-cond") ) [846]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_msg()") ) [847]
+assert_suite::assert_negative : OK: ASSERT_EQ( NPOS, htm.find("-cond") ) [848]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, htm.find("assert_msg()") ) [849]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, xml.find("-cond") ) [850]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, xml.find("assert_msg()") ) [851]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, txt.find("-cond") ) [866]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_msg()") ) [867]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, htm.find("-cond") ) [868]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, htm.find("assert_msg()") ) [869]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, xml.find("-cond") ) [870]
+assert_suite::assert_negative : OK: ASSERT_NEQ( NPOS, xml.find("assert_msg()") ) [871]
+assert_suite::assert_negative : Completed in 0 sec, 4 ms, asserts 13, failures 0
+assert_suite::assert_negative : PASS (OK)
+
+assert_suite::assert_not_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_not_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [875]
+assert_suite::assert_not_negative : AUTHOR: Andy Thomas
+assert_suite::assert_not_negative : TEST TYPE: TEST
+assert_suite::assert_not_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_not) ) ) [881]
+assert_suite::assert_not_negative : OK: ASSERT_NEQ( NPOS, txt.find("-cond") ) [892]
+assert_suite::assert_not_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_not_msg()") ) [893]
+assert_suite::assert_not_negative : Completed in 0 sec, 4 ms, asserts 3, failures 0
+assert_suite::assert_not_negative : PASS (OK)
+
+assert_suite::assert_eq_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_eq_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [896]
+assert_suite::assert_eq_negative : AUTHOR: Andy Thomas
+assert_suite::assert_eq_negative : TEST TYPE: TEST
+assert_suite::assert_eq_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_eq) ) ) [902]
+assert_suite::assert_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("-act") ) [913]
+assert_suite::assert_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(int)") ) [914]
+assert_suite::assert_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(unsigned)") ) [915]
+assert_suite::assert_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(string)") ) [916]
+assert_suite::assert_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(wstring)") ) [917]
+assert_suite::assert_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_eq_msg(vector)") ) [918]
+assert_suite::assert_eq_negative : Completed in 0 sec, 3 ms, asserts 7, failures 0
+assert_suite::assert_eq_negative : PASS (OK)
+
+assert_suite::assert_neq_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_neq_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [921]
+assert_suite::assert_neq_negative : AUTHOR: Andy Thomas
+assert_suite::assert_neq_negative : TEST TYPE: TEST
+assert_suite::assert_neq_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_neq) ) ) [927]
+assert_suite::assert_neq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(int)") ) [938]
+assert_suite::assert_neq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(unsigned)") ) [939]
+assert_suite::assert_neq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(string)") ) [940]
+assert_suite::assert_neq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(wstring)") ) [941]
+assert_suite::assert_neq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_neq_msg(vector)") ) [942]
+assert_suite::assert_neq_negative : Completed in 0 sec, 4 ms, asserts 6, failures 0
+assert_suite::assert_neq_negative : PASS (OK)
+
+assert_suite::assert_lt_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_lt_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [945]
+assert_suite::assert_lt_negative : AUTHOR: Andy Thomas
+assert_suite::assert_lt_negative : TEST TYPE: TEST
+assert_suite::assert_lt_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_lt) ) ) [951]
+assert_suite::assert_lt_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_lt_msg(36)") ) [962]
+assert_suite::assert_lt_negative : Completed in 0 sec, 3 ms, asserts 2, failures 0
+assert_suite::assert_lt_negative : PASS (OK)
+
+assert_suite::assert_lte_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_lte_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [965]
+assert_suite::assert_lte_negative : AUTHOR: Andy Thomas
+assert_suite::assert_lte_negative : TEST TYPE: TEST
+assert_suite::assert_lte_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_lte) ) ) [971]
+assert_suite::assert_lte_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_lte_msg(35)") ) [982]
+assert_suite::assert_lte_negative : Completed in 0 sec, 3 ms, asserts 2, failures 0
+assert_suite::assert_lte_negative : PASS (OK)
+
+assert_suite::assert_gt_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_gt_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [985]
+assert_suite::assert_gt_negative : AUTHOR: Andy Thomas
+assert_suite::assert_gt_negative : TEST TYPE: TEST
+assert_suite::assert_gt_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_gt) ) ) [991]
+assert_suite::assert_gt_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_gt_msg(36)") ) [1002]
+assert_suite::assert_gt_negative : Completed in 0 sec, 3 ms, asserts 2, failures 0
+assert_suite::assert_gt_negative : PASS (OK)
+
+assert_suite::assert_gte_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_gte_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1005]
+assert_suite::assert_gte_negative : AUTHOR: Andy Thomas
+assert_suite::assert_gte_negative : TEST TYPE: TEST
+assert_suite::assert_gte_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_gte) ) ) [1011]
+assert_suite::assert_gte_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_gte_msg(37)") ) [1022]
+assert_suite::assert_gte_negative : Completed in 0 sec, 2 ms, asserts 2, failures 0
+assert_suite::assert_gte_negative : PASS (OK)
+
+assert_suite::assert_double_eq_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_double_eq_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1025]
+assert_suite::assert_double_eq_negative : AUTHOR: Andy Thomas
+assert_suite::assert_double_eq_negative : TEST TYPE: TEST
+assert_suite::assert_double_eq_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_double_eq) ) ) [1031]
+assert_suite::assert_double_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_double_eq_msg()") ) [1042]
+assert_suite::assert_double_eq_negative : Completed in 0 sec, 3 ms, asserts 2, failures 0
+assert_suite::assert_double_eq_negative : PASS (OK)
+
+assert_suite::assert_double_neq_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_double_neq_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1045]
+assert_suite::assert_double_neq_negative : AUTHOR: Andy Thomas
+assert_suite::assert_double_neq_negative : TEST TYPE: TEST
+assert_suite::assert_double_neq_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_double_neq) ) ) [1051]
+assert_suite::assert_double_neq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_double_neq_msg()") ) [1062]
+assert_suite::assert_double_neq_negative : Completed in 0 sec, 5 ms, asserts 2, failures 0
+assert_suite::assert_double_neq_negative : PASS (OK)
+
+assert_suite::assert_stric_eq_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_stric_eq_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1065]
+assert_suite::assert_stric_eq_negative : AUTHOR: Andy Thomas
+assert_suite::assert_stric_eq_negative : TEST TYPE: TEST
+assert_suite::assert_stric_eq_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_stric_eq) ) ) [1071]
+assert_suite::assert_stric_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_stric_eq_msg()") ) [1082]
+assert_suite::assert_stric_eq_negative : Completed in 0 sec, 3 ms, asserts 2, failures 0
+assert_suite::assert_stric_eq_negative : PASS (OK)
+
+assert_suite::assert_stric_neq_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_stric_neq_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1085]
+assert_suite::assert_stric_neq_negative : AUTHOR: Andy Thomas
+assert_suite::assert_stric_neq_negative : TEST TYPE: TEST
+assert_suite::assert_stric_neq_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_stric_neq) ) ) [1091]
+assert_suite::assert_stric_neq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_stric_neq_msg()") ) [1102]
+assert_suite::assert_stric_neq_negative : Completed in 0 sec, 3 ms, asserts 2, failures 0
+assert_suite::assert_stric_neq_negative : PASS (OK)
+
+assert_suite::assert_array_eq_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_array_eq_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1105]
+assert_suite::assert_array_eq_negative : AUTHOR: Andy Thomas
+assert_suite::assert_array_eq_negative : TEST TYPE: TEST
+assert_suite::assert_array_eq_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_array_eq) ) ) [1111]
+assert_suite::assert_array_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_array_eq_msg(array)") ) [1122]
+assert_suite::assert_array_eq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_array_eq_msg(vector)") ) [1123]
+assert_suite::assert_array_eq_negative : Completed in 0 sec, 4 ms, asserts 3, failures 0
+assert_suite::assert_array_eq_negative : PASS (OK)
+
+assert_suite::assert_array_neq_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_array_neq_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1126]
+assert_suite::assert_array_neq_negative : AUTHOR: Andy Thomas
+assert_suite::assert_array_neq_negative : TEST TYPE: TEST
+assert_suite::assert_array_neq_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_array_neq) ) ) [1132]
+assert_suite::assert_array_neq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_array_neq_msg(array)") ) [1143]
+assert_suite::assert_array_neq_negative : OK: ASSERT_NEQ( NPOS, txt.find("assert_array_neq_msg(vector)") ) [1144]
+assert_suite::assert_array_neq_negative : Completed in 0 sec, 3 ms, asserts 3, failures 0
+assert_suite::assert_array_neq_negative : PASS (OK)
+
+assert_suite::assert_throw_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_throw_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1147]
+assert_suite::assert_throw_negative : AUTHOR: Andy Thomas
+assert_suite::assert_throw_negative : TEST TYPE: TEST
+assert_suite::assert_throw_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_throw) ) ) [1153]
+assert_suite::assert_throw_negative : Completed in 0 sec, 2 ms, asserts 1, failures 0
+assert_suite::assert_throw_negative : PASS (OK)
+
+assert_suite::assert_no_throw_negative : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::assert_no_throw_negative : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1160]
+assert_suite::assert_no_throw_negative : AUTHOR: Andy Thomas
+assert_suite::assert_no_throw_negative : TEST TYPE: TEST
+assert_suite::assert_no_throw_negative : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::assert_no_throw) ) ) [1166]
+assert_suite::assert_no_throw_negative : Completed in 0 sec, 3 ms, asserts 1, failures 0
+assert_suite::assert_no_throw_negative : PASS (OK)
+
+assert_suite::force_fail : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::force_fail : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1173]
+assert_suite::force_fail : AUTHOR: Andy Thomas
+assert_suite::force_fail : TEST TYPE: TEST
+assert_suite::force_fail : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::force_fail) ) ) [1179]
+assert_suite::force_fail : OK: ASSERT_NEQ( NPOS, txt.find("Test failure was forced") ) [1190]
+assert_suite::force_fail : Completed in 0 sec, 3 ms, asserts 2, failures 0
+assert_suite::force_fail : PASS (OK)
+
+assert_suite::force_error : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::force_error : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1193]
+assert_suite::force_error : AUTHOR: Andy Thomas
+assert_suite::force_error : TEST TYPE: TEST
+assert_suite::force_error : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::force_error) ) ) [1199]
+assert_suite::force_error : OK: ASSERT_NEQ( NPOS, txt.find("Test error was forced") ) [1210]
+assert_suite::force_error : Completed in 0 sec, 3 ms, asserts 2, failures 0
+assert_suite::force_error : PASS (OK)
+
+assert_suite::has_test_failed : TEST STARTED: 2016-03-15 09:04:34
+assert_suite::has_test_failed : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/assert_suite.hpp [1213]
+assert_suite::has_test_failed : AUTHOR: Andy Thomas
+assert_suite::has_test_failed : TEST TYPE: TEST
+assert_suite::has_test_failed : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(negative_suite::has_test_failed) ) ) [1219]
+assert_suite::has_test_failed : OK: ASSERT_NEQ( NPOS, txt.find("This is failure warning") ) [1230]
+assert_suite::has_test_failed : Completed in 0 sec, 2 ms, asserts 2, failures 0
+assert_suite::has_test_failed : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : discontig_suite
+-----------------------------------------------------------------
+discontig_suite::perform_test : TEST STARTED: 2016-03-15 09:04:34
+discontig_suite::perform_test : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/discontig_suite.hpp [36]
+discontig_suite::perform_test : AUTHOR: Andy Thomas
+discontig_suite::perform_test : TEST TYPE: TEST
+discontig_suite::perform_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::test1a) ) ) [47]
+discontig_suite::perform_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::test1b) ) ) [48]
+discontig_suite::perform_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::test2a) ) ) [49]
+discontig_suite::perform_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::test2b) ) ) [50]
+discontig_suite::perform_test : OK: ASSERT_EQ( 0, tr.run() ) [53]
+discontig_suite::perform_test : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_FAILED, "*") ) [56]
+discontig_suite::perform_test : OK: ASSERT_EQ( 4, tr.statistic_count(tdog::CNT_PASSED, "*") ) [57]
+discontig_suite::perform_test : OK: ASSERT_EQ( 4, tr.statistic_count(tdog::CNT_PASSED, "discontig_suite::internal_suite::") ) [59]
+discontig_suite::perform_test : OK: ASSERT_EQ( tdog::TS_PASS_OK, tr.test_status("discontig_suite::internal_suite::test1a") ) [60]
+discontig_suite::perform_test : OK: ASSERT_EQ( tdog::TS_PASS_OK, tr.test_status("discontig_suite::internal_suite::test1b") ) [61]
+discontig_suite::perform_test : OK: ASSERT_EQ( tdog::TS_PASS_OK, tr.test_status("discontig_suite::internal_suite::test2a") ) [62]
+discontig_suite::perform_test : OK: ASSERT_EQ( tdog::TS_PASS_OK, tr.test_status("discontig_suite::internal_suite::test2b") ) [63]
+discontig_suite::perform_test : Completed in 0 sec, 5 ms, asserts 12, failures 0
+discontig_suite::perform_test : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : error_suite
+-----------------------------------------------------------------
+error_suite::error_test : TEST STARTED: 2016-03-15 09:04:34
+error_suite::error_test : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/error_suite.hpp [54]
+error_suite::error_test : AUTHOR: Andy Thomas
+error_suite::error_test : TEST TYPE: TEST
+error_suite::error_test : OK: ASSERT_EQ( 2, tr.run() ) [67]
+error_suite::error_test : OK: ASSERT_EQ( 2, error_cnt ) [71]
+error_suite::error_test : OK: ASSERT_NEQ( NPOS, s.find("runtime_error") ) [78]
+error_suite::error_test : OK: ASSERT_NEQ( NPOS, s.find("The what message") ) [79]
+error_suite::error_test : Completed in 0 sec, 3 ms, asserts 4, failures 0
+error_suite::error_test : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : example_suite
+-----------------------------------------------------------------
+example_suite::is_prime_func : TEST STARTED: 2016-03-15 09:04:34
+example_suite::is_prime_func : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/example_suite.hpp [59]
+example_suite::is_prime_func : AUTHOR: Andy Thomas
+example_suite::is_prime_func : TEST TYPE: TEST
+example_suite::is_prime_func : Completed in 0 sec, 3 ms, asserts 0, failures 0
+example_suite::is_prime_func : PASS (OK)
+
+example_suite::enum_print : TEST STARTED: 2016-03-15 09:04:34
+example_suite::enum_print : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/example_suite.hpp [71]
+example_suite::enum_print : AUTHOR: Andy Thomas
+example_suite::enum_print : TEST TYPE: TEST
+example_suite::enum_print : Enum value: 1 [76]
+example_suite::enum_print : Completed in 0 sec, 0 ms, asserts 0, failures 0
+example_suite::enum_print : PASS (OK)
+
+example_suite::inject_test1 : TEST STARTED: 2016-03-15 09:04:34
+example_suite::inject_test1 : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/example_suite.hpp [94]
+example_suite::inject_test1 : TEST TYPE: REPEATED
+example_suite::inject_test1 : REPEAT TYPE: inject_type
+example_suite::inject_test1 : USER TYPE: user_type77
+example_suite::inject_test1 : Type value: 77 [91]
+example_suite::inject_test1 : Completed in 0 sec, 0 ms, asserts 0, failures 0
+example_suite::inject_test1 : PASS (OK)
+
+example_suite::inject_test2 : TEST STARTED: 2016-03-15 09:04:34
+example_suite::inject_test2 : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/example_suite.hpp [95]
+example_suite::inject_test2 : TEST TYPE: REPEATED
+example_suite::inject_test2 : REPEAT TYPE: inject_type
+example_suite::inject_test2 : USER TYPE: user_type2001
+example_suite::inject_test2 : Type value: 2001 [91]
+example_suite::inject_test2 : Completed in 0 sec, 0 ms, asserts 0, failures 0
+example_suite::inject_test2 : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : example_suite::beast_suite
+-----------------------------------------------------------------
+example_suite::beast_suite::neighbor_test : TEST STARTED: 2016-03-15 09:04:34
+example_suite::beast_suite::neighbor_test : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/example_suite.hpp [112]
+example_suite::beast_suite::neighbor_test : TEST TYPE: TEST
+example_suite::beast_suite::neighbor_test : OK: ASSERT_EQ( 668, neighbor_of_beast ) [115]
+example_suite::beast_suite::neighbor_test : Completed in 0 sec, 0 ms, asserts 1, failures 0
+example_suite::beast_suite::neighbor_test : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : fixture_suite
+-----------------------------------------------------------------
+fixture_suite::setup_positive : TEST STARTED: 2016-03-15 09:04:34
+fixture_suite::setup_positive : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/fixture_suite.hpp [123]
+fixture_suite::setup_positive : AUTHOR: Andy Thomas
+fixture_suite::setup_positive : TEST TYPE: TEST
+fixture_suite::setup_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fixture_ok) ) ) [134]
+fixture_suite::setup_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::_teardown2) ) ) [135]
+fixture_suite::setup_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::_teardown1) ) ) [136]
+fixture_suite::setup_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::SETUP2) ) ) [137]
+fixture_suite::setup_positive : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::SETUP1) ) ) [138]
+fixture_suite::setup_positive : OK: ASSERT_EQ( 0, tr.run("*") ) [144]
+fixture_suite::setup_positive : OK: ASSERT_EQ( "setup1 setup2 fix_c fix_setup fix_teardown fix_d teardown1 teardown2 ", internal_suite::log ) [148]
+fixture_suite::setup_positive : OK: ASSERT_NEQ( NPOS, txt.find("OK: Fixture teardown()") ) [155]
+fixture_suite::setup_positive : Completed in 0 sec, 4 ms, asserts 8, failures 0
+fixture_suite::setup_positive : PASS (OK)
+
+fixture_suite::skip_on_fail : TEST STARTED: 2016-03-15 09:04:34
+fixture_suite::skip_on_fail : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/fixture_suite.hpp [158]
+fixture_suite::skip_on_fail : AUTHOR: Andy Thomas
+fixture_suite::skip_on_fail : TEST TYPE: TEST
+fixture_suite::skip_on_fail : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fixture_ok) ) ) [168]
+fixture_suite::skip_on_fail : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::_teardown2) ) ) [169]
+fixture_suite::skip_on_fail : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::_teardown1) ) ) [170]
+fixture_suite::skip_on_fail : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::SETUP_FAIL) ) ) [171]
+fixture_suite::skip_on_fail : OK: ASSERT_EQ( 1, tr.run("*") ) [177]
+fixture_suite::skip_on_fail : OK: ASSERT_EQ( "setup1 ", internal_suite::log ) [180]
+fixture_suite::skip_on_fail : OK: ASSERT_EQ( tdog::TS_FAILED, tr.test_status("fixture_suite::internal_suite::SETUP_FAIL") ) [183]
+fixture_suite::skip_on_fail : OK: ASSERT_EQ( tdog::TS_SKIPPED, tr.test_status("fixture_suite::internal_suite::fixture_ok") ) [184]
+fixture_suite::skip_on_fail : OK: ASSERT_EQ( tdog::TS_SKIPPED, tr.test_status("fixture_suite::internal_suite::_teardown1") ) [185]
+fixture_suite::skip_on_fail : OK: ASSERT_EQ( tdog::TS_SKIPPED, tr.test_status("fixture_suite::internal_suite::_teardown2") ) [186]
+fixture_suite::skip_on_fail : Completed in 0 sec, 3 ms, asserts 10, failures 0
+fixture_suite::skip_on_fail : PASS (OK)
+
+fixture_suite::skip_on_error : TEST STARTED: 2016-03-15 09:04:34
+fixture_suite::skip_on_error : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/fixture_suite.hpp [189]
+fixture_suite::skip_on_error : AUTHOR: Andy Thomas
+fixture_suite::skip_on_error : TEST TYPE: TEST
+fixture_suite::skip_on_error : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fixture_ok) ) ) [199]
+fixture_suite::skip_on_error : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::_teardown2) ) ) [200]
+fixture_suite::skip_on_error : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::_teardown1) ) ) [201]
+fixture_suite::skip_on_error : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::SETUP_ERROR) ) ) [202]
+fixture_suite::skip_on_error : OK: ASSERT_EQ( 1, tr.run("*") ) [208]
+fixture_suite::skip_on_error : OK: ASSERT_EQ( "setup1 ", internal_suite::log ) [211]
+fixture_suite::skip_on_error : OK: ASSERT_EQ( tdog::TS_ERROR, tr.test_status("fixture_suite::internal_suite::SETUP_ERROR") ) [214]
+fixture_suite::skip_on_error : OK: ASSERT_EQ( tdog::TS_SKIPPED, tr.test_status("fixture_suite::internal_suite::fixture_ok") ) [215]
+fixture_suite::skip_on_error : OK: ASSERT_EQ( tdog::TS_SKIPPED, tr.test_status("fixture_suite::internal_suite::_teardown1") ) [216]
+fixture_suite::skip_on_error : OK: ASSERT_EQ( tdog::TS_SKIPPED, tr.test_status("fixture_suite::internal_suite::_teardown2") ) [217]
+fixture_suite::skip_on_error : Completed in 0 sec, 3 ms, asserts 10, failures 0
+fixture_suite::skip_on_error : PASS (OK)
+
+fixture_suite::class_setup_fail : TEST STARTED: 2016-03-15 09:04:34
+fixture_suite::class_setup_fail : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/fixture_suite.hpp [220]
+fixture_suite::class_setup_fail : AUTHOR: Andy Thomas
+fixture_suite::class_setup_fail : TEST TYPE: TEST
+fixture_suite::class_setup_fail : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fixture_fail) ) ) [230]
+fixture_suite::class_setup_fail : OK: ASSERT_EQ( 1, tr.run("*") ) [236]
+fixture_suite::class_setup_fail : OK: ASSERT_EQ( "fix_c fix_setup fix_d ", internal_suite::log ) [239]
+fixture_suite::class_setup_fail : OK: ASSERT_EQ( tdog::TS_ERROR, tr.test_status("fixture_suite::internal_suite::fixture_fail") ) [242]
+fixture_suite::class_setup_fail : Completed in 0 sec, 3 ms, asserts 4, failures 0
+fixture_suite::class_setup_fail : PASS (OK)
+
+fixture_suite::class_test_throw : TEST STARTED: 2016-03-15 09:04:34
+fixture_suite::class_test_throw : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/fixture_suite.hpp [245]
+fixture_suite::class_test_throw : AUTHOR: Andy Thomas
+fixture_suite::class_test_throw : TEST TYPE: TEST
+fixture_suite::class_test_throw : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fixture_test_throw) ) ) [255]
+fixture_suite::class_test_throw : OK: ASSERT_EQ( 1, tr.run("*") ) [261]
+fixture_suite::class_test_throw : OK: ASSERT_EQ( "fix_c fix_setup fix_teardown fix_d ", internal_suite::log ) [264]
+fixture_suite::class_test_throw : OK: ASSERT_EQ( tdog::TS_ERROR, tr.test_status("fixture_suite::internal_suite::fixture_test_throw") ) [267]
+fixture_suite::class_test_throw : Completed in 0 sec, 3 ms, asserts 4, failures 0
+fixture_suite::class_test_throw : PASS (OK)
+
+fixture_suite::class_teardown_throw : TEST STARTED: 2016-03-15 09:04:34
+fixture_suite::class_teardown_throw : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/fixture_suite.hpp [270]
+fixture_suite::class_teardown_throw : AUTHOR: Andy Thomas
+fixture_suite::class_teardown_throw : TEST TYPE: TEST
+fixture_suite::class_teardown_throw : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fixture_teardown_throw) ) ) [280]
+fixture_suite::class_teardown_throw : OK: ASSERT_EQ( 1, tr.run("*") ) [286]
+fixture_suite::class_teardown_throw : OK: ASSERT_EQ( "fix_c fix_setup fix_d ", internal_suite::log ) [289]
+fixture_suite::class_teardown_throw : OK: ASSERT_EQ( tdog::TS_ERROR, tr.test_status("fixture_suite::internal_suite::fixture_teardown_throw") ) [292]
+fixture_suite::class_teardown_throw : OK: ASSERT_NEQ( NPOS, txt.find("FAIL: Fixture teardown()") ) [299]
+fixture_suite::class_teardown_throw : Completed in 0 sec, 3 ms, asserts 5, failures 0
+fixture_suite::class_teardown_throw : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : message_suite
+-----------------------------------------------------------------
+message_suite::print : TEST STARTED: 2016-03-15 09:04:34
+message_suite::print : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [129]
+message_suite::print : AUTHOR: Andy Thomas
+message_suite::print : TEST TYPE: TEST
+message_suite::print : OK: ASSERT_EQ( 0, tr.run() ) [138]
+message_suite::print : OK: ASSERT_NEQ( NPOS, txt.find("PRINT<none>") ) [156]
+message_suite::print : OK: ASSERT_NEQ( NPOS, htm.find("PRINT&lt;none&gt;") ) [157]
+message_suite::print : OK: ASSERT_NEQ( NPOS, xml.find("PRINT&lt;none&gt;") ) [158]
+message_suite::print : Completed in 0 sec, 3 ms, asserts 4, failures 0
+message_suite::print : PASS (OK)
+
+message_suite::printf_bool : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_bool : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [161]
+message_suite::printf_bool : AUTHOR: Andy Thomas
+message_suite::printf_bool : TEST TYPE: TEST
+message_suite::printf_bool : OK: ASSERT_EQ( 0, tr.run() ) [168]
+message_suite::printf_bool : OK: ASSERT_NEQ( NPOS, txt.find("PRINT<bool> true") ) [174]
+message_suite::printf_bool : OK: ASSERT_NEQ( NPOS, txt.find("PRINT<bool> false") ) [175]
+message_suite::printf_bool : Completed in 0 sec, 4 ms, asserts 3, failures 0
+message_suite::printf_bool : PASS (OK)
+
+message_suite::printf_int : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_int : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [178]
+message_suite::printf_int : AUTHOR: Andy Thomas
+message_suite::printf_int : TEST TYPE: TEST
+message_suite::printf_int : OK: ASSERT_EQ( 0, tr.run() ) [185]
+message_suite::printf_int : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<int> 34283, HEX: 0x000085EB, OCT:0102753") ) [191]
+message_suite::printf_int : Completed in 0 sec, 4 ms, asserts 2, failures 0
+message_suite::printf_int : PASS (OK)
+
+message_suite::printf_str : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_str : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [194]
+message_suite::printf_str : AUTHOR: Andy Thomas
+message_suite::printf_str : TEST TYPE: TEST
+message_suite::printf_str : OK: ASSERT_EQ( 0, tr.run() ) [201]
+message_suite::printf_str : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<str> hello world") ) [207]
+message_suite::printf_str : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<str> std::string") ) [208]
+message_suite::printf_str : Completed in 0 sec, 3 ms, asserts 3, failures 0
+message_suite::printf_str : PASS (OK)
+
+message_suite::printf_wstr : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_wstr : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [211]
+message_suite::printf_wstr : AUTHOR: Andy Thomas
+message_suite::printf_wstr : TEST TYPE: TEST
+message_suite::printf_wstr : OK: ASSERT_EQ( 0, tr.run() ) [218]
+message_suite::printf_wstr : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<wstr> hello world") ) [224]
+message_suite::printf_wstr : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<wstr> std::wstring") ) [225]
+message_suite::printf_wstr : Completed in 0 sec, 3 ms, asserts 3, failures 0
+message_suite::printf_wstr : PASS (OK)
+
+message_suite::printf_kstr : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_kstr : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [228]
+message_suite::printf_kstr : AUTHOR: Andy Thomas
+message_suite::printf_kstr : TEST TYPE: TEST
+message_suite::printf_kstr : OK: ASSERT_EQ( 0, tr.run() ) [235]
+message_suite::printf_kstr : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<kstr> hello\\tworld") ) [241]
+message_suite::printf_kstr : Completed in 0 sec, 3 ms, asserts 2, failures 0
+message_suite::printf_kstr : PASS (OK)
+
+message_suite::printf_char : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_char : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [244]
+message_suite::printf_char : AUTHOR: Andy Thomas
+message_suite::printf_char : TEST TYPE: TEST
+message_suite::printf_char : OK: ASSERT_EQ( 0, tr.run() ) [251]
+message_suite::printf_char : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<str> char*") ) [257]
+message_suite::printf_char : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<str> const char*") ) [258]
+message_suite::printf_char : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<str> wchar_t*") ) [259]
+message_suite::printf_char : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<str> const wchar_t*") ) [260]
+message_suite::printf_char : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<str> <nullptr>") ) [261]
+message_suite::printf_char : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<wstr> <nullptr>") ) [262]
+message_suite::printf_char : Completed in 0 sec, 3 ms, asserts 7, failures 0
+message_suite::printf_char : PASS (OK)
+
+message_suite::printf_double : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_double : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [265]
+message_suite::printf_double : AUTHOR: Andy Thomas
+message_suite::printf_double : TEST TYPE: TEST
+message_suite::printf_double : OK: ASSERT_EQ( 0, tr.run() ) [272]
+message_suite::printf_double : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<double> 3.142") ) [278]
+message_suite::printf_double : Completed in 0 sec, 3 ms, asserts 2, failures 0
+message_suite::printf_double : PASS (OK)
+
+message_suite::printf_pointer : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_pointer : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [281]
+message_suite::printf_pointer : AUTHOR: Andy Thomas
+message_suite::printf_pointer : TEST TYPE: TEST
+message_suite::printf_pointer : OK: ASSERT_EQ( 0, tr.run() ) [288]
+message_suite::printf_pointer : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<class> addr:") ) [294]
+message_suite::printf_pointer : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<class> <nullptr>") ) [295]
+message_suite::printf_pointer : Completed in 0 sec, 3 ms, asserts 3, failures 0
+message_suite::printf_pointer : PASS (OK)
+
+message_suite::printf_typed : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_typed : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [298]
+message_suite::printf_typed : AUTHOR: Andy Thomas
+message_suite::printf_typed : TEST TYPE: TEST
+message_suite::printf_typed : OK: ASSERT_EQ( 0, tr.run() ) [305]
+message_suite::printf_typed : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<enum> 1") ) [311]
+message_suite::printf_typed : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<size> 2001") ) [312]
+message_suite::printf_typed : Completed in 0 sec, 3 ms, asserts 3, failures 0
+message_suite::printf_typed : PASS (OK)
+
+message_suite::printf_unknown : TEST STARTED: 2016-03-15 09:04:34
+message_suite::printf_unknown : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [315]
+message_suite::printf_unknown : AUTHOR: Andy Thomas
+message_suite::printf_unknown : TEST TYPE: TEST
+message_suite::printf_unknown : OK: ASSERT_EQ( 0, tr.run() ) [322]
+message_suite::printf_unknown : OK: ASSERT_NEQ( NPOS, txt.find("PRINTF<class> <unknown type>") ) [328]
+message_suite::printf_unknown : Completed in 0 sec, 3 ms, asserts 2, failures 0
+message_suite::printf_unknown : PASS (OK)
+
+message_suite::warnings : TEST STARTED: 2016-03-15 09:04:34
+message_suite::warnings : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [331]
+message_suite::warnings : AUTHOR: Andy Thomas
+message_suite::warnings : TEST TYPE: TEST
+message_suite::warnings : OK: ASSERT_EQ( 0, tr.run() ) [338]
+message_suite::warnings : OK: ASSERT_EQ( 1, tr.statistic_count(tdog::CNT_WARNINGS) ) [340]
+message_suite::warnings : OK: ASSERT_NEQ( NPOS, txt.find("This is a warning") ) [355]
+message_suite::warnings : OK: ASSERT_NEQ( NPOS, htm.find("This is a warning") ) [356]
+message_suite::warnings : OK: ASSERT_NEQ( NPOS, xml.find("This is a warning") ) [357]
+message_suite::warnings : Completed in 0 sec, 5 ms, asserts 5, failures 0
+message_suite::warnings : PASS (OK)
+
+message_suite::print_warn : TEST STARTED: 2016-03-15 09:04:34
+message_suite::print_warn : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/message_suite.hpp [360]
+message_suite::print_warn : AUTHOR: Andy Thomas
+message_suite::print_warn : TEST TYPE: TEST
+message_suite::print_warn : WARNING: This is an example warning - the test should pass [363]
+message_suite::print_warn : Completed in 0 sec, 0 ms, asserts 0, failures 0
+message_suite::print_warn : PASS (WARN)
+
+-----------------------------------------------------------------
+SUITE : naming_suite
+-----------------------------------------------------------------
+naming_suite::name_matching_impl : TEST STARTED: 2016-03-15 09:04:34
+naming_suite::name_matching_impl : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/naming_suite.hpp [89]
+naming_suite::name_matching_impl : AUTHOR: Andy Thomas
+naming_suite::name_matching_impl : TEST TYPE: TEST
+naming_suite::name_matching_impl : OK: ASSERT_EQ( 0, suite_open.counter() ) [105]
+naming_suite::name_matching_impl : OK: ASSERT_EQ( 0, suite_close.counter() ) [106]
+naming_suite::name_matching_impl : OK: ASSERT( test_def.name_equals("test_name", false) ) [109]
+naming_suite::name_matching_impl : OK: ASSERT( test_def.name_equals("::test_name", false) ) [110]
+naming_suite::name_matching_impl : OK: ASSERT( test_def.name_equals("::", false) ) [111]
+naming_suite::name_matching_impl : OK: ASSERT( test_def.name_equals("*", false) ) [112]
+naming_suite::name_matching_impl : OK: ASSERT( test_def.name_equals("::*", false) ) [113]
+naming_suite::name_matching_impl : OK: ASSERT_NOT( test_def.name_equals("wrong_name", false) ) [116]
+naming_suite::name_matching_impl : OK: ASSERT_NOT( test_def.name_equals("test*", false) ) [117]
+naming_suite::name_matching_impl : OK: ASSERT_NOT( test_def.name_equals("test::*", false) ) [118]
+naming_suite::name_matching_impl : OK: ASSERT_NOT( test_def.name_equals("", false) ) [119]
+naming_suite::name_matching_impl : Completed in 0 sec, 0 ms, asserts 11, failures 0
+naming_suite::name_matching_impl : PASS (OK)
+
+naming_suite::suite_matching_impl : TEST STARTED: 2016-03-15 09:04:34
+naming_suite::suite_matching_impl : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/naming_suite.hpp [122]
+naming_suite::suite_matching_impl : AUTHOR: Andy Thomas
+naming_suite::suite_matching_impl : TEST TYPE: TEST
+naming_suite::suite_matching_impl : OK: ASSERT( test_named.name_equals("suite1::suite2::test_name", false) ) [133]
+naming_suite::suite_matching_impl : OK: ASSERT( test_named.name_equals("::suite1::suite2::test_name", false) ) [134]
+naming_suite::suite_matching_impl : OK: ASSERT( test_named.name_equals("suite1::suite2::", false) ) [135]
+naming_suite::suite_matching_impl : OK: ASSERT( test_named.name_equals("::suite1::suite2::", false) ) [136]
+naming_suite::suite_matching_impl : OK: ASSERT( test_named.name_equals("suite1::*", false) ) [137]
+naming_suite::suite_matching_impl : OK: ASSERT( test_named.name_equals("*", false) ) [138]
+naming_suite::suite_matching_impl : OK: ASSERT( test_named.name_equals("::*", false) ) [139]
+naming_suite::suite_matching_impl : OK: ASSERT_NOT( test_named.name_equals("suite1::suite2::wrong_name", false) ) [142]
+naming_suite::suite_matching_impl : OK: ASSERT_NOT( test_named.name_equals("suite1::wrong_suite::test_name", false) ) [143]
+naming_suite::suite_matching_impl : OK: ASSERT_NOT( test_named.name_equals("suite1::", false) ) [144]
+naming_suite::suite_matching_impl : OK: ASSERT_NOT( test_named.name_equals("suite1::suite::*", false) ) [145]
+naming_suite::suite_matching_impl : OK: ASSERT_NOT( test_named.name_equals("", false) ) [146]
+naming_suite::suite_matching_impl : OK: ASSERT_NOT( test_named.name_equals("*", true) ) [147]
+naming_suite::suite_matching_impl : OK: ASSERT_NOT( test_named.name_equals("::*", true) ) [148]
+naming_suite::suite_matching_impl : Completed in 0 sec, 0 ms, asserts 14, failures 0
+naming_suite::suite_matching_impl : PASS (OK)
+
+naming_suite::postive_tests : TEST STARTED: 2016-03-15 09:04:34
+naming_suite::postive_tests : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/naming_suite.hpp [151]
+naming_suite::postive_tests : AUTHOR: Andy Thomas
+naming_suite::postive_tests : TEST TYPE: TEST
+naming_suite::postive_tests : OK: ASSERT( tr.exists("naming_suite::internal_suite::same_name") ) [166]
+naming_suite::postive_tests : OK: ASSERT( tr.exists("naming_suite::internal_suite::same_name::subtest") ) [167]
+naming_suite::postive_tests : OK: ASSERT( tr.exists("naming_suite::*") ) [168]
+naming_suite::postive_tests : OK: ASSERT( tr.exists("::*") ) [171]
+naming_suite::postive_tests : OK: ASSERT( tr.exists("::naming_suite::internal_suite::same_name") ) [172]
+naming_suite::postive_tests : OK: ASSERT( tr.exists("::naming_suite::internal_suite::same_name::subtest") ) [173]
+naming_suite::postive_tests : OK: ASSERT( tr.exists("naming_suite::internal_suite::") ) [176]
+naming_suite::postive_tests : OK: ASSERT( tr.exists("naming_suite::internal_suite::same_name::") ) [177]
+naming_suite::postive_tests : OK: ASSERT_EQ( 0, tr.run() ) [180]
+naming_suite::postive_tests : Completed in 0 sec, 5 ms, asserts 9, failures 0
+naming_suite::postive_tests : PASS (OK)
+
+naming_suite::negative_tests : TEST STARTED: 2016-03-15 09:04:34
+naming_suite::negative_tests : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/naming_suite.hpp [183]
+naming_suite::negative_tests : AUTHOR: Andy Thomas
+naming_suite::negative_tests : TEST TYPE: TEST
+naming_suite::negative_tests : OK: ASSERT_NOT( tr.exists("::") ) [198]
+naming_suite::negative_tests : OK: ASSERT_NOT( tr.exists("naming_suite::") ) [199]
+naming_suite::negative_tests : OK: ASSERT_NOT( tr.exists("naming_suite::internal_suite") ) [200]
+naming_suite::negative_tests : OK: ASSERT_NOT( tr.exists("naming_suite::internal_suite::same_") ) [201]
+naming_suite::negative_tests : OK: ASSERT_EQ( 0, tr.run() ) [204]
+naming_suite::negative_tests : Completed in 0 sec, 3 ms, asserts 5, failures 0
+naming_suite::negative_tests : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : repeated_suite
+-----------------------------------------------------------------
+repeated_suite::repeated_baseobj : TEST STARTED: 2016-03-15 09:04:34
+repeated_suite::repeated_baseobj : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/repeated_suite.hpp [156]
+repeated_suite::repeated_baseobj : AUTHOR: Andy Thomas
+repeated_suite::repeated_baseobj : TEST TYPE: TEST
+repeated_suite::repeated_baseobj : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::inc_test) ) ) [165]
+repeated_suite::repeated_baseobj : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::dec_test) ) ) [166]
+repeated_suite::repeated_baseobj : OK: ASSERT_EQ( 0, tr.run("*") ) [169]
+repeated_suite::repeated_baseobj : OK: ASSERT_NEQ( NPOS, s.find("REPEATED") ) [178]
+repeated_suite::repeated_baseobj : OK: ASSERT_NEQ( NPOS, s.find("baseobj_test") ) [179]
+repeated_suite::repeated_baseobj : Completed in 0 sec, 4 ms, asserts 5, failures 0
+repeated_suite::repeated_baseobj : PASS (OK)
+
+repeated_suite::repeated_template : TEST STARTED: 2016-03-15 09:04:34
+repeated_suite::repeated_template : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/repeated_suite.hpp [182]
+repeated_suite::repeated_template : AUTHOR: Andy Thomas
+repeated_suite::repeated_template : TEST TYPE: TEST
+repeated_suite::repeated_template : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::narrow_test) ) ) [191]
+repeated_suite::repeated_template : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::wide_test) ) ) [192]
+repeated_suite::repeated_template : OK: ASSERT_EQ( 0, tr.run("*") ) [195]
+repeated_suite::repeated_template : OK: ASSERT_NEQ( NPOS, s.find("REPEATED") ) [204]
+repeated_suite::repeated_template : OK: ASSERT_NEQ( NPOS, s.find("template_test") ) [205]
+repeated_suite::repeated_template : Completed in 0 sec, 3 ms, asserts 5, failures 0
+repeated_suite::repeated_template : PASS (OK)
+
+repeated_suite::repeated_cross_suite : TEST STARTED: 2016-03-15 09:04:34
+repeated_suite::repeated_cross_suite : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/repeated_suite.hpp [208]
+repeated_suite::repeated_cross_suite : AUTHOR: Andy Thomas
+repeated_suite::repeated_cross_suite : TEST TYPE: TEST
+repeated_suite::repeated_cross_suite : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::narrow_test) ) ) [217]
+repeated_suite::repeated_cross_suite : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::wide_test) ) ) [218]
+repeated_suite::repeated_cross_suite : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::inc_test) ) ) [219]
+repeated_suite::repeated_cross_suite : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::dec_test) ) ) [220]
+repeated_suite::repeated_cross_suite : OK: ASSERT_EQ( 0, tr.run("*") ) [223]
+repeated_suite::repeated_cross_suite : OK: ASSERT_NEQ( NPOS, s.find("REPEATED") ) [232]
+repeated_suite::repeated_cross_suite : OK: ASSERT_NEQ( NPOS, s.find("template_test") ) [233]
+repeated_suite::repeated_cross_suite : OK: ASSERT_NEQ( NPOS, s.find("baseobj_test") ) [234]
+repeated_suite::repeated_cross_suite : Completed in 0 sec, 3 ms, asserts 8, failures 0
+repeated_suite::repeated_cross_suite : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : runner_suite
+-----------------------------------------------------------------
+runner_suite::stats_all : TEST STARTED: 2016-03-15 09:04:34
+runner_suite::stats_all : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/runner_suite.hpp [88]
+runner_suite::stats_all : AUTHOR: Andy Thomas
+runner_suite::stats_all : TEST TYPE: TEST
+runner_suite::stats_all : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::pass_assert1) ) ) [95]
+runner_suite::stats_all : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::pass_assert2) ) ) [96]
+runner_suite::stats_all : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fail_assert) ) ) [97]
+runner_suite::stats_all : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::pass1) ) ) [98]
+runner_suite::stats_all : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::pass2) ) ) [99]
+runner_suite::stats_all : OK: ASSERT_EQ( 1, rslt ) [103]
+runner_suite::stats_all : OK: ASSERT_EQ( 5, tr.statistic_count(tdog::CNT_TOTAL, "*") ) [106]
+runner_suite::stats_all : OK: ASSERT_EQ( 5, tr.statistic_count(tdog::CNT_RAN, "*") ) [107]
+runner_suite::stats_all : OK: ASSERT_EQ( 1, tr.statistic_count(tdog::CNT_FAILED, "*") ) [108]
+runner_suite::stats_all : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_SKIPPED, "*") ) [109]
+runner_suite::stats_all : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_DISABLED, "*") ) [110]
+runner_suite::stats_all : Completed in 0 sec, 4 ms, asserts 11, failures 0
+runner_suite::stats_all : PASS (OK)
+
+runner_suite::stats_some : TEST STARTED: 2016-03-15 09:04:34
+runner_suite::stats_some : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/runner_suite.hpp [113]
+runner_suite::stats_some : AUTHOR: Andy Thomas
+runner_suite::stats_some : TEST TYPE: TEST
+runner_suite::stats_some : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::pass_assert1) ) ) [120]
+runner_suite::stats_some : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::pass_assert2) ) ) [121]
+runner_suite::stats_some : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fail_assert) ) ) [122]
+runner_suite::stats_some : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::pass1) ) ) [123]
+runner_suite::stats_some : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::pass2) ) ) [124]
+runner_suite::stats_some : OK: ASSERT_EQ( 1, rslt ) [132]
+runner_suite::stats_some : OK: ASSERT_EQ( 5, tr.statistic_count(tdog::CNT_TOTAL, "*") ) [136]
+runner_suite::stats_some : OK: ASSERT_EQ( 4, tr.statistic_count(tdog::CNT_RAN, "*") ) [137]
+runner_suite::stats_some : OK: ASSERT_EQ( 1, tr.statistic_count(tdog::CNT_FAILED, "*") ) [138]
+runner_suite::stats_some : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_SKIPPED, "*") ) [139]
+runner_suite::stats_some : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_DISABLED, "*") ) [140]
+runner_suite::stats_some : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_ERRORS, "*") ) [141]
+runner_suite::stats_some : Completed in 0 sec, 3 ms, asserts 12, failures 0
+runner_suite::stats_some : PASS (OK)
+
+runner_suite::parsing : TEST STARTED: 2016-03-15 09:04:34
+runner_suite::parsing : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/runner_suite.hpp [144]
+runner_suite::parsing : TEST TYPE: PROTECTED
+runner_suite::parsing : USER TYPE: tdog::runner
+runner_suite::parsing : OK: ASSERT( _run_parse<char>(7, argv1, rout, dout) ) [151]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST1,SUITE1::TEST2,TEST3", rout ) [152]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST4", dout ) [153]
+runner_suite::parsing : OK: ASSERT( _run_parse<char>(7, argv2, rout, dout) ) [157]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST1,SUITE1::TEST2,TEST3", rout ) [158]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST4", dout ) [159]
+runner_suite::parsing : OK: ASSERT( _run_parse<char>(4, argv3, rout, dout) ) [162]
+runner_suite::parsing : OK: ASSERT_EQ( "*", rout ) [163]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST4", dout ) [164]
+runner_suite::parsing : OK: ASSERT( _run_parse<char>(6, argv4, rout, dout) ) [167]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST1,SUITE1::TEST2,TEST3", rout ) [168]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST4", dout ) [169]
+runner_suite::parsing : OK: ASSERT( _run_parse<char>(6, argv5, rout, dout) ) [172]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST1,SUITE1::TEST2,TEST3", rout ) [173]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST4", dout ) [174]
+runner_suite::parsing : OK: ASSERT( _run_parse<wchar_t>(5, argv6, rout, dout) ) [179]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST1,SUITE1::TEST2,TEST3", rout ) [180]
+runner_suite::parsing : OK: ASSERT_EQ( "TEST4", dout ) [181]
+runner_suite::parsing : OK: ASSERT_NOT( _run_parse<char>(3, argv7, rout, dout) ) [185]
+runner_suite::parsing : OK: ASSERT_EQ( "", rout ) [186]
+runner_suite::parsing : Completed in 0 sec, 0 ms, asserts 20, failures 0
+runner_suite::parsing : PASS (OK)
+
+runner_suite::cmdline : TEST STARTED: 2016-03-15 09:04:34
+runner_suite::cmdline : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/runner_suite.hpp [189]
+runner_suite::cmdline : TEST TYPE: TEST
+runner_suite::cmdline : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::pass_assert1) ) ) [194]
+runner_suite::cmdline : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::pass_assert2) ) ) [195]
+runner_suite::cmdline : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fail_assert) ) ) [196]
+runner_suite::cmdline : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::pass1) ) ) [197]
+runner_suite::cmdline : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::pass2) ) ) [198]
+runner_suite::cmdline : OK: ASSERT_EQ( 0, tr.run_cmdline(4, const_cast<char**>(argv)) ) [206]
+runner_suite::cmdline : OK: ASSERT_EQ( 5, tr.statistic_count(tdog::CNT_TOTAL, "*") ) [209]
+runner_suite::cmdline : OK: ASSERT_EQ( 4, tr.statistic_count(tdog::CNT_RAN, "*") ) [210]
+runner_suite::cmdline : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_FAILED, "*") ) [211]
+runner_suite::cmdline : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_SKIPPED, "*") ) [212]
+runner_suite::cmdline : OK: ASSERT_EQ( 1, tr.statistic_count(tdog::CNT_DISABLED, "*") ) [213]
+runner_suite::cmdline : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_ERRORS, "*") ) [214]
+runner_suite::cmdline : Completed in 0 sec, 3 ms, asserts 12, failures 0
+runner_suite::cmdline : PASS (OK)
+
+runner_suite::singleton_method : TEST STARTED: 2016-03-15 09:04:34
+runner_suite::singleton_method : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/runner_suite.hpp [217]
+runner_suite::singleton_method : TEST TYPE: TEST
+runner_suite::singleton_method : OK: The runner project name must not be empty [223]
+runner_suite::singleton_method : OK: ASSERT_EQ( name, tdog_test::global_project_name() ) [227]
+runner_suite::singleton_method : Project name: TDOG C++ xUnit Testing Framework [228]
+runner_suite::singleton_method : Completed in 0 sec, 0 ms, asserts 2, failures 0
+runner_suite::singleton_method : PASS (OK)
+
+runner_suite::immutable_test : TEST STARTED: 2016-03-15 09:04:34
+runner_suite::immutable_test : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/runner_suite.hpp [232]
+runner_suite::immutable_test : TEST TYPE: TEST
+runner_suite::immutable_test : OK: ASSERT THROWS ( TDOG_SET_PROJECT_NAME("New name") )std::logic_error [236]
+runner_suite::immutable_test : OK: ASSERT_NEQ( "New name", tdog::runner::global().project_name() ) [238]
+runner_suite::immutable_test : Completed in 0 sec, 0 ms, asserts 2, failures 0
+runner_suite::immutable_test : PASS (OK)
+
+runner_suite::full_sorted : TEST STARTED: 2016-03-15 09:04:34
+runner_suite::full_sorted : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/runner_suite.hpp [449]
+runner_suite::full_sorted : TEST TYPE: REPEATED
+runner_suite::full_sorted : REPEAT TYPE: sort_type
+runner_suite::full_sorted : USER TYPE: fullsort_inj
+runner_suite::full_sorted : OK: ASSERT_EQ( 0, suite_open.counter() ) [293]
+runner_suite::full_sorted : OK: ASSERT_EQ( 0, suite_close.counter() ) [294]
+runner_suite::full_sorted : OK: ASSERT_EQ( 0, suiteA_open.counter() ) [295]
+runner_suite::full_sorted : OK: ASSERT_EQ( 0, suiteA_close.counter() ) [296]
+runner_suite::full_sorted : OK: ASSERT_EQ( 0, suiteAB_open.counter() ) [297]
+runner_suite::full_sorted : OK: ASSERT_EQ( 0, suiteAB_close.counter() ) [298]
+runner_suite::full_sorted : OK: ASSERT_EQ( 0, suiteC_open.counter() ) [299]
+runner_suite::full_sorted : OK: ASSERT_EQ( 0, suiteC_close.counter() ) [300]
+runner_suite::full_sorted : FULL SORT: true [336]
+runner_suite::full_sorted : OK: ASSERT_EQ( USER_TYPE::fullsort, tr.sorted() ) [338]
+runner_suite::full_sorted : Suite names... [344]
+runner_suite::full_sorted : suiteA [347]
+runner_suite::full_sorted : suiteA::suiteB [347]
+runner_suite::full_sorted : suiteC [347]
+runner_suite::full_sorted : OK: ASSERT_EQ( 4, (int)names.size() ) [351]
+runner_suite::full_sorted : OK: ASSERT_EQ( "", names[0] ) [352]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA", names[1] ) [353]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::suiteB", names[2] ) [354]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteC", names[3] ) [355]
+runner_suite::full_sorted : Test names... [360]
+runner_suite::full_sorted : setup01 [363]
+runner_suite::full_sorted : SETUP02 [363]
+runner_suite::full_sorted : tc1 [363]
+runner_suite::full_sorted : TC2 [363]
+runner_suite::full_sorted : TC2_ [363]
+runner_suite::full_sorted : suiteA::_setup01 [363]
+runner_suite::full_sorted : suiteA::SetUp02 [363]
+runner_suite::full_sorted : suiteA::tc1 [363]
+runner_suite::full_sorted : suiteA::TC2 [363]
+runner_suite::full_sorted : suiteA::TC2_ [363]
+runner_suite::full_sorted : suiteA::suiteB::_setup01 [363]
+runner_suite::full_sorted : suiteA::suiteB::SetUp02 [363]
+runner_suite::full_sorted : suiteA::suiteB::tc1 [363]
+runner_suite::full_sorted : suiteA::suiteB::TC2 [363]
+runner_suite::full_sorted : suiteA::suiteB::TC2_ [363]
+runner_suite::full_sorted : suiteA::suiteB::_teardown01 [363]
+runner_suite::full_sorted : suiteA::suiteB::TEARDOWN02 [363]
+runner_suite::full_sorted : suiteA::_teardown01 [363]
+runner_suite::full_sorted : suiteA::TEARDOWN02 [363]
+runner_suite::full_sorted : suiteC::_setup01 [363]
+runner_suite::full_sorted : suiteC::SetUp02 [363]
+runner_suite::full_sorted : suiteC::tc1 [363]
+runner_suite::full_sorted : suiteC::TC2 [363]
+runner_suite::full_sorted : suiteC::TC2_ [363]
+runner_suite::full_sorted : suiteC::_teardown01 [363]
+runner_suite::full_sorted : suiteC::TEARDOWN02 [363]
+runner_suite::full_sorted : _teardown01 [363]
+runner_suite::full_sorted : TEARDOWN02 [363]
+runner_suite::full_sorted : OK: ASSERT_EQ( 28, (int)names.size() ) [367]
+runner_suite::full_sorted : OK: ASSERT_EQ( "setup01", names[0] ) [372]
+runner_suite::full_sorted : OK: ASSERT_EQ( "SETUP02", names[1] ) [373]
+runner_suite::full_sorted : OK: ASSERT_EQ( "tc1", names[2] ) [374]
+runner_suite::full_sorted : OK: ASSERT_EQ( "TC2", names[3] ) [375]
+runner_suite::full_sorted : OK: ASSERT_EQ( "TC2_", names[4] ) [376]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::_setup01", names[5] ) [378]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::SetUp02", names[6] ) [379]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::tc1", names[7] ) [380]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::TC2", names[8] ) [381]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::TC2_", names[9] ) [382]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::suiteB::_setup01", names[10] ) [384]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::suiteB::SetUp02", names[11] ) [385]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::suiteB::tc1", names[12] ) [386]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::suiteB::TC2", names[13] ) [387]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::suiteB::TC2_", names[14] ) [388]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::suiteB::_teardown01", names[15] ) [389]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::suiteB::TEARDOWN02", names[16] ) [390]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::_teardown01", names[17] ) [392]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteA::TEARDOWN02", names[18] ) [393]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteC::_setup01", names[19] ) [395]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteC::SetUp02", names[20] ) [396]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteC::tc1", names[21] ) [397]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteC::TC2", names[22] ) [398]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteC::TC2_", names[23] ) [399]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteC::_teardown01", names[24] ) [400]
+runner_suite::full_sorted : OK: ASSERT_EQ( "suiteC::TEARDOWN02", names[25] ) [401]
+runner_suite::full_sorted : OK: ASSERT_EQ( "_teardown01", names[26] ) [404]
+runner_suite::full_sorted : OK: ASSERT_EQ( "TEARDOWN02", names[27] ) [405]
+runner_suite::full_sorted : Completed in 0 sec, 1 ms, asserts 43, failures 0
+runner_suite::full_sorted : PASS (OK)
+
+runner_suite::part_sorted : TEST STARTED: 2016-03-15 09:04:34
+runner_suite::part_sorted : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/runner_suite.hpp [450]
+runner_suite::part_sorted : TEST TYPE: REPEATED
+runner_suite::part_sorted : REPEAT TYPE: sort_type
+runner_suite::part_sorted : USER TYPE: partsort_inj
+runner_suite::part_sorted : OK: ASSERT_EQ( 0, suite_open.counter() ) [293]
+runner_suite::part_sorted : OK: ASSERT_EQ( 0, suite_close.counter() ) [294]
+runner_suite::part_sorted : OK: ASSERT_EQ( 0, suiteA_open.counter() ) [295]
+runner_suite::part_sorted : OK: ASSERT_EQ( 0, suiteA_close.counter() ) [296]
+runner_suite::part_sorted : OK: ASSERT_EQ( 0, suiteAB_open.counter() ) [297]
+runner_suite::part_sorted : OK: ASSERT_EQ( 0, suiteAB_close.counter() ) [298]
+runner_suite::part_sorted : OK: ASSERT_EQ( 0, suiteC_open.counter() ) [299]
+runner_suite::part_sorted : OK: ASSERT_EQ( 0, suiteC_close.counter() ) [300]
+runner_suite::part_sorted : FULL SORT: false [336]
+runner_suite::part_sorted : OK: ASSERT_EQ( USER_TYPE::fullsort, tr.sorted() ) [338]
+runner_suite::part_sorted : Suite names... [344]
+runner_suite::part_sorted : suiteA [347]
+runner_suite::part_sorted : suiteA::suiteB [347]
+runner_suite::part_sorted : suiteC [347]
+runner_suite::part_sorted : OK: ASSERT_EQ( 4, (int)names.size() ) [351]
+runner_suite::part_sorted : OK: ASSERT_EQ( "", names[0] ) [352]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA", names[1] ) [353]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::suiteB", names[2] ) [354]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteC", names[3] ) [355]
+runner_suite::part_sorted : Test names... [360]
+runner_suite::part_sorted : setup01 [363]
+runner_suite::part_sorted : SETUP02 [363]
+runner_suite::part_sorted : TC2_ [363]
+runner_suite::part_sorted : TC2 [363]
+runner_suite::part_sorted : tc1 [363]
+runner_suite::part_sorted : suiteA::_setup01 [363]
+runner_suite::part_sorted : suiteA::SetUp02 [363]
+runner_suite::part_sorted : suiteA::TC2_ [363]
+runner_suite::part_sorted : suiteA::TC2 [363]
+runner_suite::part_sorted : suiteA::tc1 [363]
+runner_suite::part_sorted : suiteA::suiteB::_setup01 [363]
+runner_suite::part_sorted : suiteA::suiteB::SetUp02 [363]
+runner_suite::part_sorted : suiteA::suiteB::TC2_ [363]
+runner_suite::part_sorted : suiteA::suiteB::TC2 [363]
+runner_suite::part_sorted : suiteA::suiteB::tc1 [363]
+runner_suite::part_sorted : suiteA::suiteB::_teardown01 [363]
+runner_suite::part_sorted : suiteA::suiteB::TEARDOWN02 [363]
+runner_suite::part_sorted : suiteA::_teardown01 [363]
+runner_suite::part_sorted : suiteA::TEARDOWN02 [363]
+runner_suite::part_sorted : suiteC::_setup01 [363]
+runner_suite::part_sorted : suiteC::SetUp02 [363]
+runner_suite::part_sorted : suiteC::TC2_ [363]
+runner_suite::part_sorted : suiteC::TC2 [363]
+runner_suite::part_sorted : suiteC::tc1 [363]
+runner_suite::part_sorted : suiteC::_teardown01 [363]
+runner_suite::part_sorted : suiteC::TEARDOWN02 [363]
+runner_suite::part_sorted : _teardown01 [363]
+runner_suite::part_sorted : TEARDOWN02 [363]
+runner_suite::part_sorted : OK: ASSERT_EQ( 28, (int)names.size() ) [367]
+runner_suite::part_sorted : OK: ASSERT_EQ( "setup01", names[0] ) [412]
+runner_suite::part_sorted : OK: ASSERT_EQ( "SETUP02", names[1] ) [413]
+runner_suite::part_sorted : OK: ASSERT_EQ( "TC2_", names[2] ) [414]
+runner_suite::part_sorted : OK: ASSERT_EQ( "TC2", names[3] ) [415]
+runner_suite::part_sorted : OK: ASSERT_EQ( "tc1", names[4] ) [416]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::_setup01", names[5] ) [418]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::SetUp02", names[6] ) [419]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::TC2_", names[7] ) [420]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::TC2", names[8] ) [421]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::tc1", names[9] ) [422]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::suiteB::_setup01", names[10] ) [424]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::suiteB::SetUp02", names[11] ) [425]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::suiteB::TC2_", names[12] ) [426]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::suiteB::TC2", names[13] ) [427]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::suiteB::tc1", names[14] ) [428]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::suiteB::_teardown01", names[15] ) [429]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::suiteB::TEARDOWN02", names[16] ) [430]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::_teardown01", names[17] ) [432]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteA::TEARDOWN02", names[18] ) [433]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteC::_setup01", names[19] ) [435]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteC::SetUp02", names[20] ) [436]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteC::TC2_", names[21] ) [437]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteC::TC2", names[22] ) [438]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteC::tc1", names[23] ) [439]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteC::_teardown01", names[24] ) [440]
+runner_suite::part_sorted : OK: ASSERT_EQ( "suiteC::TEARDOWN02", names[25] ) [441]
+runner_suite::part_sorted : OK: ASSERT_EQ( "_teardown01", names[26] ) [444]
+runner_suite::part_sorted : OK: ASSERT_EQ( "TEARDOWN02", names[27] ) [445]
+runner_suite::part_sorted : Completed in 0 sec, 0 ms, asserts 43, failures 0
+runner_suite::part_sorted : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : size_suite
+-----------------------------------------------------------------
+size_suite::test_sizes : TEST STARTED: 2016-03-15 09:04:34
+size_suite::test_sizes : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/size_suite.hpp [32]
+size_suite::test_sizes : AUTHOR: Andy Thomas
+size_suite::test_sizes : TEST TYPE: TEST
+size_suite::test_sizes : OK: ASSERT_EQ( 1, static_cast<int>(sizeof(tdog::i8_t)) ) [36]
+size_suite::test_sizes : OK: ASSERT_EQ( 1, static_cast<int>(sizeof(tdog::u8_t)) ) [37]
+size_suite::test_sizes : OK: ASSERT_EQ( 2, static_cast<int>(sizeof(tdog::i16_t)) ) [38]
+size_suite::test_sizes : OK: ASSERT_EQ( 2, static_cast<int>(sizeof(tdog::u16_t)) ) [39]
+size_suite::test_sizes : OK: ASSERT_EQ( 4, static_cast<int>(sizeof(tdog::i32_t)) ) [40]
+size_suite::test_sizes : OK: ASSERT_EQ( 4, static_cast<int>(sizeof(tdog::u32_t)) ) [41]
+size_suite::test_sizes : OK: ASSERT_EQ( 8, static_cast<int>(sizeof(tdog::i64_t)) ) [42]
+size_suite::test_sizes : OK: ASSERT_EQ( 8, static_cast<int>(sizeof(tdog::u64_t)) ) [43]
+size_suite::test_sizes : OK: ASSERT_GTE( 8, static_cast<int>(sizeof(tdog::xint_t)) ) [44]
+size_suite::test_sizes : Completed in 0 sec, 0 ms, asserts 9, failures 0
+size_suite::test_sizes : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : status_suite
+-----------------------------------------------------------------
+status_suite::status_test : TEST STARTED: 2016-03-15 09:04:34
+status_suite::status_test : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/status_suite.hpp [116]
+status_suite::status_test : AUTHOR: Andy Thomas
+status_suite::status_test : TEST TYPE: TEST
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::pass_default) ) ) [124]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::pass_assert) ) ) [125]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fail_assert) ) ) [126]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::fail_macro) ) ) [127]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::error_throw) ) ) [128]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::error_macro) ) ) [129]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::wait1) ) ) [130]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::wait2) ) ) [131]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::disabled_test) ) ) [132]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::skip_test) ) ) [133]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::pass1) ) ) [134]
+status_suite::status_test : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::nested_suite::pass2) ) ) [135]
+status_suite::status_test : OK: ASSERT_EQ( 1, tr.set_enabled("status_suite::internal_suite::disabled_test", false) ) [138]
+status_suite::status_test : OK: ASSERT_EQ( tdog::TS_NOT_EXIST, tr.test_status("status_suite::internal_suite") ) [141]
+status_suite::status_test : OK: ASSERT_EQ( tdog::TS_NOT_EXIST, tr.test_status("status_suite::internal_suite::") ) [142]
+status_suite::status_test : OK: ASSERT_EQ( tdog::TS_NOT_EXIST, tr.test_status("status_suite::internal_suite::*") ) [143]
+status_suite::status_test : OK: ASSERT_EQ( tdog::TS_NOT_EXIST, tr.test_status("status_suite::internal_suite::wrong_name") ) [144]
+status_suite::status_test : OK: ASSERT_EQ( tdog::TS_READY, tr.test_status("status_suite::internal_suite::pass_default") ) [146]
+status_suite::status_test : OK: ASSERT_EQ( tdog::TS_DISABLED, tr.test_status("status_suite::internal_suite::disabled_test") ) [148]
+status_suite::status_test : OK: ASSERT_EQ( 12, total ) [152]
+status_suite::status_test : OK: ASSERT_EQ( total, tr.statistic_count(tdog::CNT_TOTAL, "::*") ) [153]
+status_suite::status_test : OK: ASSERT_EQ( 2, tr.statistic_count(tdog::CNT_TOTAL, "status_suite::internal_suite::nested_suite::") ) [154]
+status_suite::status_test : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_SKIPPED, "*") ) [155]
+status_suite::status_test : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_SKIPPED, "status_suite::internal_suite::") ) [156]
+status_suite::status_test : OK: ASSERT_EQ( 1, tr.statistic_count(tdog::CNT_DISABLED, "*") ) [157]
+status_suite::status_test : OK: ASSERT_EQ( 1, tr.statistic_count(tdog::CNT_DISABLED, "status_suite::internal_suite::") ) [158]
+status_suite::status_test : OK: ASSERT_EQ( 0, tr.statistic_count(tdog::CNT_TOTAL, "::") ) [161]
+status_suite::status_test : OK: ASSERT_EQ( 4, run_rslt ) [166]
+status_suite::status_test : OK: ASSERT_EQ( total, tr.statistic_count(tdog::CNT_TOTAL, "*") ) [169]
+status_suite::status_test : OK: ASSERT_EQ( 1, not_run ) [173]
+status_suite::status_test : OK: ASSERT_EQ( 2, not_run ) [176]
+status_suite::status_test : OK: ASSERT_EQ( (total - not_run), ran ) [179]
+status_suite::status_test : OK: ASSERT_EQ( 2, tr.statistic_count(tdog::CNT_FAILED, "*") ) [181]
+status_suite::status_test : OK: ASSERT_EQ( 2, tr.statistic_count(tdog::CNT_ERRORS, "*") ) [182]
+status_suite::status_test : OK: ASSERT_EQ( (ran - run_rslt), tr.statistic_count(tdog::CNT_PASSED, "*") ) [183]
+status_suite::status_test : OK: ASSERT_GT( tr.statistic_count(tdog::CNT_ASSERT_TOTAL, "*"), 0 ) [186]
+status_suite::status_test : OK: ASSERT_GT( tr.statistic_count(tdog::CNT_ASSERT_FAILED, "*"), 0 ) [187]
+status_suite::status_test : OK: ASSERT_GTE( tr.statistic_count(tdog::CNT_DURATION, "*"), 1500 ) [191]
+status_suite::status_test : OK: ASSERT_LT( tr.statistic_count(tdog::CNT_DURATION, "*"), 3000 ) [192]
+status_suite::status_test : OK: ASSERT_GTE( tr.statistic_count(tdog::CNT_DURATION, "status_suite::internal_suite::wait1"), 500 ) [193]
+status_suite::status_test : OK: ASSERT_LT( tr.statistic_count(tdog::CNT_DURATION, "status_suite::internal_suite::wait1"), 1000 ) [194]
+status_suite::status_test : OK: ASSERT_GTE( tr.statistic_count(tdog::CNT_DURATION, "status_suite::internal_suite::wait2"), 1000 ) [195]
+status_suite::status_test : OK: ASSERT_LT( tr.statistic_count(tdog::CNT_DURATION, "status_suite::internal_suite::wait2"), 1500 ) [196]
+status_suite::status_test : Completed in 1 sec, 511 ms, asserts 43, failures 0
+status_suite::status_test : PASS (OK)
+
+-----------------------------------------------------------------
+SUITE : timing_suite
+-----------------------------------------------------------------
+timing_suite::local_timeout : TEST STARTED: 2016-03-15 09:04:35
+timing_suite::local_timeout : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/timing_suite.hpp [117]
+timing_suite::local_timeout : AUTHOR: Andy Thomas
+timing_suite::local_timeout : TEST TYPE: TEST
+timing_suite::local_timeout : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::local_timeout) ) ) [127]
+timing_suite::local_timeout : OK: ASSERT_EQ( 1, tr.run() ) [129]
+timing_suite::local_timeout : Completed in 2 sec, 312 ms, asserts 2, failures 0
+timing_suite::local_timeout : PASS (OK)
+
+timing_suite::short_sleep : TEST STARTED: 2016-03-15 09:04:38
+timing_suite::short_sleep : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/timing_suite.hpp [132]
+timing_suite::short_sleep : AUTHOR: Andy Thomas
+timing_suite::short_sleep : TEST TYPE: TEST
+timing_suite::short_sleep : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::short_sleep) ) ) [141]
+timing_suite::short_sleep : OK: ASSERT_EQ( 1, tr.run() ) [143]
+timing_suite::short_sleep : Completed in 1 sec, 507 ms, asserts 2, failures 0
+timing_suite::short_sleep : PASS (OK)
+
+timing_suite::long_sleep : TEST STARTED: 2016-03-15 09:04:39
+timing_suite::long_sleep : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/timing_suite.hpp [146]
+timing_suite::long_sleep : AUTHOR: Andy Thomas
+timing_suite::long_sleep : TEST TYPE: TEST
+timing_suite::long_sleep : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::long_sleep) ) ) [155]
+timing_suite::long_sleep : OK: ASSERT_EQ( 1, tr.run() ) [157]
+timing_suite::long_sleep : Completed in 2 sec, 507 ms, asserts 2, failures 0
+timing_suite::long_sleep : PASS (OK)
+
+timing_suite::global_timeout : TEST STARTED: 2016-03-15 09:04:42
+timing_suite::global_timeout : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/timing_suite.hpp [160]
+timing_suite::global_timeout : AUTHOR: Andy Thomas
+timing_suite::global_timeout : TEST TYPE: TEST
+timing_suite::global_timeout : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::global_timeout) ) ) [169]
+timing_suite::global_timeout : OK: ASSERT_EQ( 1, tr.run() ) [173]
+timing_suite::global_timeout : Completed in 1 sec, 508 ms, asserts 2, failures 0
+timing_suite::global_timeout : PASS (OK)
+
+timing_suite::global_exempt : TEST STARTED: 2016-03-15 09:04:43
+timing_suite::global_exempt : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/timing_suite.hpp [177]
+timing_suite::global_exempt : AUTHOR: Andy Thomas
+timing_suite::global_exempt : TEST TYPE: TEST
+timing_suite::global_exempt : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::global_exempt) ) ) [186]
+timing_suite::global_exempt : OK: ASSERT_EQ( 0, tr.run() ) [190]
+timing_suite::global_exempt : Completed in 1 sec, 511 ms, asserts 2, failures 0
+timing_suite::global_exempt : PASS (OK)
+
+timing_suite::time_warning : TEST STARTED: 2016-03-15 09:04:45
+timing_suite::time_warning : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/timing_suite.hpp [193]
+timing_suite::time_warning : AUTHOR: Andy Thomas
+timing_suite::time_warning : TEST TYPE: TEST
+timing_suite::time_warning : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::global_exempt) ) ) [202]
+timing_suite::time_warning : OK: ASSERT_EQ( 0, tr.run() ) [207]
+timing_suite::time_warning : OK: ASSERT_NEQ( NPOS, s.find("time warning threshold of 1000 ms exceeded") ) [214]
+timing_suite::time_warning : Completed in 1 sec, 513 ms, asserts 3, failures 0
+timing_suite::time_warning : PASS (OK)
+
+timing_suite::check_limit : TEST STARTED: 2016-03-15 09:04:46
+timing_suite::check_limit : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/timing_suite.hpp [217]
+timing_suite::check_limit : AUTHOR: Andy Thomas
+timing_suite::check_limit : TEST TYPE: TEST
+timing_suite::check_limit : OK: ASSERT( tr.register_test( TDOG_GET_TCPTR(internal_suite::check_limit) ) ) [226]
+timing_suite::check_limit : OK: ASSERT_EQ( 1, tr.run() ) [230]
+timing_suite::check_limit : OK: ASSERT_NEQ( NPOS, s.find("Exceed limit detected") ) [237]
+timing_suite::check_limit : Completed in 1 sec, 17 ms, asserts 3, failures 0
+timing_suite::check_limit : PASS (OK)
+
+-----------------------------------------------------------------
+DEFAULT SUITE (teardown)
+-----------------------------------------------------------------
+teardown_global_01 : TEST STARTED: 2016-03-15 09:04:47
+teardown_global_01 : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/main.cpp [74]
+teardown_global_01 : TEST TYPE: TEST
+teardown_global_01 : OK: ASSERT( g_setup_called ) [77]
+teardown_global_01 : OK: ASSERT( g_test_called ) [78]
+teardown_global_01 : Completed in 0 sec, 0 ms, asserts 2, failures 0
+teardown_global_01 : PASS (OK)
+
+teardown_global_02 : TEST STARTED: 2016-03-15 09:04:47
+teardown_global_02 : LOCATION: /media/sf_E_DRIVE/tdog/src/selftest/main.cpp [82]
+teardown_global_02 : TEST TYPE: TEST
+teardown_global_02 : OK: ASSERT( g_teardown_called ) [85]
+teardown_global_02 : OK: ASSERT( g_test_called ) [86]
+teardown_global_02 : Completed in 0 sec, 0 ms, asserts 2, failures 0
+teardown_global_02 : PASS (OK)
+
+
+-----------------------------------------------------------------
+SKIPPED/DISABLED TESTS
+-----------------------------------------------------------------
+NONE
+
+-----------------------------------------------------------------
+STATISTICAL RESULTS
+-----------------------------------------------------------------
+TOTAL: 90
+Ran: 90
+Passed: 90
+Warnings: 1
+Failed: 0
+Errors: 0
+Skipped: 0
+Disabled: 0
+Pass Rate: 100%
+
+-----------------------------------------------------------------
+END TIME: 2016-03-15 09:04:47
+RUN DURATION: 13 sec, 601 ms
+-----------------------------------------------------------------
+
