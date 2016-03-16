@@ -1676,8 +1676,8 @@
  * message. The format is similar to that used in the C printf() function,
  * although more restrictive.
  *
- * The "val" parameter may be an any integer type that can be represented as
- * "long long", or one of the following types:
+ * The "val" parameter may be an any integer type upto 64 bit in size, or
+ * one of the following types:
  * - const char*
  * - const wchar_t*
  * - std::string
@@ -2368,12 +2368,6 @@
  * input with "::*". For example, "SUITE1::*".
  * - To match everything, use "*" (or "::*").
  * .
- *
- * Example:
- *
- * \code
- * TDOG_SET_ENABLED("TEST1, SUITE1::, SUITE2::TEST2", false);
- * \endcode
  *
  * Example:
  *

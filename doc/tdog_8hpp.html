@@ -2278,7 +2278,7 @@ Miscellaneous macros</h2></td></tr>
 
 <p>Writes a formatted value information string to the test report. </p>
 <p>This is macro is similar to <a class="el" href="tdog_8hpp.html#a6bd94e2a473ce988298daba4073a0547" title="Writes an information message string to the test report. ">TDOG_PRINT()</a>, except that it is possible to supply an additional value which will appear in a formatted message. The format is similar to that used in the C printf() function, although more restrictive.</p>
-<p>The "val" parameter may be an any integer type that can be represented as "long long", or one of the following types:</p><ul>
+<p>The "val" parameter may be an any integer type upto 64 bit in size, or one of the following types:</p><ul>
 <li>const char*</li>
 <li>const wchar_t*</li>
 <li>std::string</li>
@@ -2909,8 +2909,6 @@ Miscellaneous macros</h2></td></tr>
 <li>To match everything, use "*" (or "::*").</li>
 </ul>
 <p>Example:</p>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;TDOG_SET_ENABLED(&quot;TEST1, SUITE1::, SUITE2::TEST2&quot;, false);</div>
-</div><!-- fragment --><p>Example:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;TDOG_SET_ENABLED(&quot;TEST1, SUITE1::, SUITE2::TEST2&quot;, false);</div>
 </div><!-- fragment --><p>Here, "TEST1" is a test case declared outside of a suite, and will be disabled. Other tests in the default suite will not be affected. All tests directly under "SUITE1" will be disabled, but not those under sub-suites of "SUITE1". Finally, "TEST2" will be disabled in "SUITE2".</p>
 <p>To refer to the default suite, use "::" as the input. For example, the following will disable all tests declared outside of any suite:</p>

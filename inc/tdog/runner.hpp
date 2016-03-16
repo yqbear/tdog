@@ -593,7 +593,7 @@ std::vector<std::string> declaration_errors(bool lf = false) const;
   * \endcode
   *
   * To run all tests, the command "--trun *" should be given or,
-  * alternatively "--trall". The use of "--dis" to disable tests is optional.
+  * alternatively "--trall". The use of "--tdis" to disable tests is optional.
   *
   * For example, the following will run all with two tests disabled:
   *
