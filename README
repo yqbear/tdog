@@ -26,7 +26,7 @@ Framework. It features:
  - Test specific and global time limits
  - Test time warnings
  - Exceptions (i.e. "throw" and "no throw" tests)
- - Not dependendent on RTTI
+ - Not dependent on RTTI
  - Lightweight & highly portable
  - No dependencies on other libraries or tools
  - Comprehensive documentation
