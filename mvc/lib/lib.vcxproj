@@ -236,7 +236,10 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw32\</Command>
+      <Command>if not exist $(SolutionDir)..\lib\ md $(SolutionDir)..\lib\
+if not exist $(SolutionDir)..\lib\msw32\ md $(SolutionDir)..\lib\msw32\
+
+copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw32\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MD Debug|Win32'">
@@ -256,7 +259,10 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw32\</Command>
+      <Command>if not exist $(SolutionDir)..\lib\ md $(SolutionDir)..\lib\
+if not exist $(SolutionDir)..\lib\msw32\ md $(SolutionDir)..\lib\msw32\
+
+copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw32\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MT Debug|Win32'">
@@ -276,7 +282,10 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw32\</Command>
+      <Command>if not exist $(SolutionDir)..\lib\ md $(SolutionDir)..\lib\
+if not exist $(SolutionDir)..\lib\msw32\ md $(SolutionDir)..\lib\msw32\
+
+copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw32\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MT|Win32'">
@@ -295,7 +304,10 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw32\</Command>
+      <Command>if not exist $(SolutionDir)..\lib\ md $(SolutionDir)..\lib\
+if not exist $(SolutionDir)..\lib\msw32\ md $(SolutionDir)..\lib\msw32\
+
+copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw32\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MD|x64'">
@@ -314,7 +326,10 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw64\</Command>
+      <Command>if not exist $(SolutionDir)..\lib\ md $(SolutionDir)..\lib\
+if not exist $(SolutionDir)..\lib\msw64\ md $(SolutionDir)..\lib\msw64\
+
+copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw64\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MD Debug|x64'">
@@ -334,7 +349,10 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw64\</Command>
+      <Command>if not exist $(SolutionDir)..\lib\ md $(SolutionDir)..\lib\
+if not exist $(SolutionDir)..\lib\msw64\ md $(SolutionDir)..\lib\msw64\
+
+copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw64\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MT Debug|x64'">
@@ -354,7 +372,10 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw64\</Command>
+      <Command>if not exist $(SolutionDir)..\lib\ md $(SolutionDir)..\lib\
+if not exist $(SolutionDir)..\lib\msw64\ md $(SolutionDir)..\lib\msw64\
+
+copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw64\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MT|x64'">
@@ -373,7 +394,10 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw64\</Command>
+      <Command>if not exist $(SolutionDir)..\lib\ md $(SolutionDir)..\lib\
+if not exist $(SolutionDir)..\lib\msw64\ md $(SolutionDir)..\lib\msw64\
+
+copy $(SolutionDir)..\obj\$(TargetName)$(TargetExt) $(SolutionDir)..\lib\msw64\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

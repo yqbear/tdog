@@ -139,7 +139,7 @@ void run_helper::_printf_str(const std::string& s, const std::string& val, int l
   // Replace strings
   fs = str_replace(fs, "%s", val);
 
-  if (fs.find("%k") != std::string::npos) // < search in s, not fs
+  if (fs.find("%k") != std::string::npos)
   {
     // Replace
     fs = str_replace(fs, "%k", encode_esc(val));
@@ -148,7 +148,7 @@ void run_helper::_printf_str(const std::string& s, const std::string& val, int l
   // Put back literal
   fs = str_replace(fs, "$#&", "%");
 
-   // Output to event log
+  // Output to event log
   print(fs, lnum);
 }
 //---------------------------------------------------------------------------

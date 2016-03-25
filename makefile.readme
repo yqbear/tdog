@@ -22,7 +22,7 @@ It has the following features:
   - Does not depend on other tools, such as MSYS, GMSL, Perl etc.
   - Can auto-detect build the platform, including 64 and 32 bit architectures.
   - Provides release and debug targets, and a comprehensive range of build goals.
-  - Supports Windows resouce compilation using "windres".
+  - Supports Windows resource compilation using "windres".
   - Pre-build, post-build, distribution and install steps.
 
 Source and build directories are expected to reside relative to the makefile,
@@ -75,7 +75,7 @@ A typical project may comprise the following makefiles:
   - makefile
   - make-app.conf (executable)
   - make-lib.conf (static library)
-  - make-so.conf (a DLL under MSW)
+  - make-so.conf  (a DLL under MSW)
   - makevars.conf (common variables)
 
 The "app" configuration, for example, may trigger the building of the other two.
@@ -160,7 +160,7 @@ documented.
 
 PROJECT CONFIGURATION
 This section defines key project information, such as the build name (BUILD_BASENAME)
-and build type, which can be a binary file (bin), static library (lib), shared
+and build type, which can be a binary file (exe), static library (lib), shared
 object (so) or master (mst) type. A shared object build will create an "so" file under LINUX,
 and a "DLL" with a corresponding import library under Windows. A master build type
 is simply used to build multiple configurations (it generates nothing itself).
@@ -173,7 +173,7 @@ SOURCE FILES
 Source files are given in this section, and may be expressed in terms of wildcards,
 so that new source files are automatically included as they are created. Platform
 specific sources, i.e. for LINUX and Windows, can be specified separately. (Note that
-method is to specify source files, i.e. *.cpp, rather than object output files --
+the approach is to specify source files, i.e. *.cpp, rather than object output files --
 object filenames are derived from their sources).
 
 COMPILER/LINKER OPTIONS
@@ -188,11 +188,13 @@ Additional install and distribution steps may also be given.
 MISCELLANEOUS
 Finally, a few minor options live here.
 
+See the default "makefile.conf" file for further information.
+
 
 ################################
 COMMON VARIABLES
 ################################
 
-An additional configuration file (i.e. makevars.conf) used to provide a common place to set
+An additional configuration file (makevars.conf) used to provide a common place to set
 custom application name and version variables for your application, along with any other
 variables you may wish to declare.
