@@ -36,7 +36,7 @@
 # 1a. INFORMATION
 ################################
 ADXM_VERSION := 5
-ADXM_FULLVERSION := 5.3
+ADXM_FULLVERSION := 5.4
 ADXM_DESC := ADXM: Angry Dog Cross-Platform Make
 ADXM_COPYRIGHT := Copyright (c) Andy Thomas 2016
 
@@ -638,15 +638,22 @@ endif # !conferr
 endif # temp
 endif # mst
 
-# Check we are not trying run a library
+# Check type for run or dbg
 ifneq ($(findstring run, $(MAKECMDGOALS)),)
-ifneq ($(BUILD_TYPE), bin)
-endif # BUILD_TYPE
+runbin := 1
+endif # run
+ifneq ($(findstring dbg, $(MAKECMDGOALS)),)
+runbin := 1
+endif # dbg
+
+ifdef runbin
+ifneq ($(BUILD_TYPE), exe)
 ifndef conferr
 conferr := You cannot run a non-executing binary
 errinfo := The project build type is: $(BUILD_TYPE)
 endif # !conferr
-endif # run
+endif # BUILD_TYPE
+endif # runbin
 
 # IMPORTANT: We must clear variables pertaining
 # to rules, otherwise we won't see the error
