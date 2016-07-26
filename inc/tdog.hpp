@@ -242,7 +242,7 @@
   #define TDOG_TEST_REPEATED(test_name, repeat_type, user_type)
 #else
   #define TDOG_TEST_REPEATED(test_name, repeat_type, user_type) \
-  tdog::test_case< repeat_type##_reptclass<user_type> > test_name##_inst( \
+  tdog::test_case< repeat_type##_reptclass<user_type > > test_name##_inst( \
     #test_name, tdog::TT_REPEATED, __FILE__, __LINE__, #user_type, #repeat_type);
 #endif
 
