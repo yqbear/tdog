@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C2E252E9-4116-4835-8C17-5A1E33691295}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="lib\tdog.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="test\selftest.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="tdog">
+        <MSBuild Projects="lib\tdog.cbproj"/>
+    </Target>
+    <Target Name="tdog:Clean">
+        <MSBuild Projects="lib\tdog.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="tdog:Make">
+        <MSBuild Projects="lib\tdog.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="selftest">
+        <MSBuild Projects="test\selftest.cbproj"/>
+    </Target>
+    <Target Name="selftest:Clean">
+        <MSBuild Projects="test\selftest.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="selftest:Make">
+        <MSBuild Projects="test\selftest.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="tdog;selftest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="tdog:Clean;selftest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="tdog:Make;selftest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
