@@ -549,7 +549,7 @@ void run_helper::printf(const std::string& s, std::wstring val, int lnum)
   _printf_str(s, val, lnum);
 }
 //---------------------------------------------------------------------------
-void run_helper::assert(bool condition, bool eq, const std::string& s, int lnum)
+void run_helper::assert_true(bool condition, bool eq, const std::string& s, int lnum)
 {
   if ( !_assert_impl(condition, eq, s, lnum) )
   {

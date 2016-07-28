@@ -789,7 +789,7 @@
 #else
   // Actual
   #define TDOG_ASSERT(condition) \
-  tdog_helper->assert(condition, true, std::string("ASSERT( ") + \
+  tdog_helper->assert_true(condition, true, std::string("ASSERT( ") + \
     #condition + std::string(" )"), __LINE__)
 #endif
 
@@ -806,7 +806,7 @@
 #else
   // Actual
   #define TDOG_ASSERT_NOT(condition) \
-  tdog_helper->assert(condition, false, std::string("ASSERT_NOT( ") + \
+  tdog_helper->assert_true(condition, false, std::string("ASSERT_NOT( ") + \
     #condition + std::string(" )"), __LINE__)
 #endif
 
@@ -826,7 +826,7 @@
 #else
   // Actual
   #define TDOG_ASSERT_MSG(condition, msg) \
-  tdog_helper->assert(condition, true, msg, __LINE__)
+  tdog_helper->assert_true(condition, true, msg, __LINE__)
 #endif
 
 /**
@@ -843,7 +843,7 @@
 #else
   // Actual
   #define TDOG_ASSERT_NOT_MSG(condition, msg) \
-  tdog_helper->assert(condition, false, msg, __LINE__)
+  tdog_helper->assert_true(condition, false, msg, __LINE__)
 #endif
 
 /**
@@ -1528,7 +1528,7 @@
     try {  exprn; } \
     catch(const e_type&) { ethrown = true; } \
     catch(...) {} \
-    tdog_helper->assert(ethrown, true, \
+    tdog_helper->assert_true(ethrown, true, \
       std::string("ASSERT THROWS ( ") + #exprn + \
       std::string(" )") + #e_type, __LINE__); \
   } while(false)
@@ -1560,7 +1560,7 @@
     bool ethrown = false; \
     try {  exprn; } \
     catch(...) { ethrown = true; } \
-    tdog_helper->assert(ethrown, false, \
+    tdog_helper->assert_true(ethrown, false, \
       std::string("ASSERT NO THROW ( ") + #exprn + \
       std::string(" )"), __LINE__); \
   } while(false)
