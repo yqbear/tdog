@@ -190,7 +190,7 @@ class run_helper
   // TEST ASSERT STATEMENTS
   // ---------------------------
 
-  void assert(bool condition, bool eq, const std::string& s, int lnum);
+  void assert_true(bool condition, bool eq, const std::string& s, int lnum);
   void assert_double_equal(const double& exp, const double& act,
     bool eq, const double& delta, const std::string& s, int lnum);
   void assert_stric_equal(const std::string& exp, const std::string& act,

@@ -54,12 +54,12 @@ class test_fixture : public basic_test
     {
       // FIXTURE SETUP
       setup_ok = container.setup();
-      m_helper.assert(setup_ok, true, "Fixture setup()", 0);
+      m_helper.assert_true(setup_ok, true, "Fixture setup()", 0);
       if (!setup_ok) m_helper.raise_error("Fixture setup() failed", 0);
     }
     catch(...)
     {
-      m_helper.assert(false, true, "Fixture setup()", 0);
+      m_helper.assert_true(false, true, "Fixture setup()", 0);
       throw; // <- rethrow for protected run, will set error state
     }
 
@@ -77,7 +77,7 @@ class test_fixture : public basic_test
         // an implementation error, and re-throw
         bool teardown_ok = true;
         try { container.teardown(); } catch(...) { teardown_ok = false; }
-        m_helper.assert(teardown_ok, true, "Fixture teardown()", 0);
+        m_helper.assert_true(teardown_ok, true, "Fixture teardown()", 0);
         throw;
       }
 
@@ -85,11 +85,11 @@ class test_fixture : public basic_test
       try
       {
         container.teardown();
-        m_helper.assert(true, true, "Fixture teardown()", 0);
+        m_helper.assert_true(true, true, "Fixture teardown()", 0);
       }
       catch(...)
       {
-        m_helper.assert(false, true, "Fixture teardown()", 0);
+        m_helper.assert_true(false, true, "Fixture teardown()", 0);
         throw;
       }
     }
