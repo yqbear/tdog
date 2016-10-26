@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : status_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -115,7 +115,7 @@ TDOG_SUITE(status_suite)
 
   TDOG_TEST_CASE(status_test)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr;
     tr.set_default_report(tdog::RS_NONE);

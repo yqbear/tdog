@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : example_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ TDOG_SUITE(example_suite)
     // Global test
     TDOG_TEST_CASE(is_prime_func)
     {
-      TDOG_SET_AUTHOR("Andy Thomas");
+      TDOG_SET_AUTHOR("Kuiper");
       TDOG_ASSERT( is_prime(47) );
       TDOG_ASSERT( !is_prime(8) );
       TDOG_ASSERT( !is_prime(21) );
@@ -58,7 +58,7 @@ TDOG_SUITE(example_suite)
 
   TDOG_TEST_CASE(is_prime_func)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_SUMMARY, "./reports/internal/example_is_prime.txt");
@@ -70,7 +70,7 @@ TDOG_SUITE(example_suite)
 
   TDOG_TEST_CASE(enum_print)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     enum {VAL0, VAL1};
     TDOG_PRINTF("Enum value: %g", VAL1);

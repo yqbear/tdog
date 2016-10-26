@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : runner.cpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -47,8 +47,8 @@ bool runner::_exists(const std::string& s, const std::vector<std::string>& v) co
 //---------------------------------------------------------------------------
 std::vector<std::string> runner::_split_names(std::string names) const
 {
-  // Split separated name list. Will also remove
-  // any leading default namespace.
+  // Split separated name list. Will also
+  // remove any default namespace prefix.
   const std::size_t NSZ = std::string(NSSEP).size();
 
   names = trim_str(names);
@@ -72,7 +72,10 @@ std::vector<std::string> runner::_split_names(std::string names) const
 
     // Remove default namespace
     temp = names.substr(pa, pb - pa);
-    if (temp.substr(0, NSZ) == NSSEP) temp.erase(0, NSZ);
+    if (temp != NSSEP && temp.substr(0, NSZ) == NSSEP)
+    {
+      temp.erase(0, NSZ);
+    }
 
     rslt.push_back(temp);
     pa = pb + 1;

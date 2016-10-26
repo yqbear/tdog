@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : runner_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -87,7 +87,7 @@ TDOG_SUITE(runner_suite)
 
   TDOG_TEST_CASE(stats_all)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/runner_stats_all.txt");
@@ -112,7 +112,7 @@ TDOG_SUITE(runner_suite)
 
   TDOG_TEST_CASE(stats_some)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/runner_stats_some.txt");

@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : message_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -128,7 +128,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(print)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_print.txt");
 
@@ -160,7 +160,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_bool)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_bool.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_bool) );
@@ -177,7 +177,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_int)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_int.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_int) );
@@ -193,7 +193,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_str)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_str.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_str) );
@@ -210,7 +210,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_wstr)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_wstr.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_wstr) );
@@ -227,7 +227,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_kstr)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_kstr.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_kstr) );
@@ -243,7 +243,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_char)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_char.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_char) );
@@ -264,7 +264,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_double)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_double.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_double) );
@@ -280,7 +280,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_pointer)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_pointer.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_pointer) );
@@ -297,7 +297,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_typed)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_typed.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_typed) );
@@ -314,7 +314,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(printf_unknown)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_printf_unknown.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::printf_unknown) );
@@ -330,7 +330,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(warnings)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/message_warnings.txt");
     tr.register_test( TDOG_GET_TCPTR(internal_suite::print_warn) );
@@ -359,7 +359,7 @@ TDOG_SUITE(message_suite)
 
   TDOG_TEST_CASE(print_warn)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     TDOG_TEST_WARNING("This is an example warning - the test should pass");
   }
 

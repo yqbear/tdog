@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : basic_reporter.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -29,8 +29,8 @@
 //---------------------------------------------------------------------------
 
 // Contants as defines for portability
-#define TDOG_WEBSITE_NAME "bigangrydog.com"
-#define TDOG_WEBSITE_URL "http://bigangrydog.com/"
+#define TDOG_WEBSITE_NAME "kuiper.zone"
+#define TDOG_WEBSITE_URL "http://kuiper.zone/"
 
 // Namespace
 namespace tdog {

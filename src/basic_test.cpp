@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : basic_test.cpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -12,6 +12,7 @@
 #include "tdog/private/basic_test.hpp"
 #include "tdog/private/suite_manager.hpp"
 #include "tdog/runner.hpp"
+#include "tdog_exception.hpp"
 #include "util.hpp"
 
 #include <stdexcept>
@@ -239,8 +240,12 @@ void basic_test::run(tdog::i64_t glimit, tdog::i64_t gwarn)
       // Call the wrapper of the wapper
       // of the thing that does the thing.
       _run_unprotected();
-
     }
+  }
+  catch(const tdog_exception&)
+  {
+    // Do nothing.
+    // Information already written to log.
   }
   catch(const std::bad_alloc&)
   {
@@ -314,7 +319,8 @@ void basic_test::run(tdog::i64_t glimit, tdog::i64_t gwarn)
   catch(const int&)
   {
     m_helper.raise_error("unhandled 'int' thrown in test", 0, "int");
-  } catch(...)
+  }
+  catch(...)
   {
     m_helper.raise_error("unknown exception thrown in test", 0);
   }

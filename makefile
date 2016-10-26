@@ -1,5 +1,5 @@
 #############################################################################
-#  ADXM         : Angry Dog Cross-platform Make (5.3)
+#  ADXM         : Angry Dog Cross-platform Make
 #  COPYRIGHT    : Andy Thomas (c) 2016
 #  WEBSITE      : bigangrydog.com
 #  LICENSE      : Apache 2.0

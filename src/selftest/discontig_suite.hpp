@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : discontig_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ TDOG_SUITE(discontig_suite) // <- shared across files
   TDOG_TEST_CASE(perform_test)
   {
     // Can only do this with __COUNTER__ macro
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
   #if defined(__COUNTER__)
     tdog::runner tr;

@@ -1,8 +1,8 @@
 #############################################################################
 PROJECT     : TDOG C++ xUnit Testing Framework
-COPYRIGHT   : Andy Thomas (c) 2016
+COPYRIGHT   : Kuiper (c) 2016
 LICENSE     : Apache 2.0
-WEBSITE     : bigangrydog.com
+WEBSITE     : kuiper.zone
 #############################################################################
 
 
@@ -33,9 +33,8 @@ Framework. It features:
  - Unencumbered open source license
 
 TDOG is maintained for g++ for LINUX, MSVC and MinGW on Windows.
-It can be found at: http://bigangrydog.com
 
-See the "index.html" under "doc" for documentation.
+See https://kuiper.zone for documentation.
 
 
 ###############################
@@ -78,6 +77,8 @@ which is intentional.
 RELEASE NOTES
 ###############################
 
+Version 3.1 - Updated and moved website to kuiper.zone.
+
 Version 3.0 - First public release of TDOG.
 
 
@@ -92,8 +93,6 @@ CentOS 7 -    g++ 4.8.5 (64 bit)
 Fedora 23 -   g++ 5.3.1 (64 bit)
 Windows 10 -  TDM64 g++ 5.1.0 (32 and 64)
 Windows 10 -  MSVC 2013 (32 and 64)
-Windows XP -  Ancient Borland BCB 5* (32 bit)
+Windows XP -  Ancient Borland BCB 5 (32 bit)
 
-Andy T
-
-*Does not support contiguous suites under BCB. Also found the Windows Sleep call inaccurate under XP.
+Kuiper

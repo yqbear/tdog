@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : assert_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -257,18 +257,22 @@ TDOG_SUITE(assert_suite)
   {
     TDOG_TEST_CASE(assert)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
       TDOG_ASSERT(false);
       TDOG_ASSERT_MSG(false, "assert_msg()");
     }
 
     TDOG_TEST_CASE(assert_not)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
       TDOG_ASSERT_NOT(true);
       TDOG_ASSERT_NOT_MSG(true, "assert_not_msg()");
     }
 
     TDOG_TEST_CASE(assert_eq)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       // Boolean
       TDOG_ASSERT_EQ(true, (5 == 6));
 
@@ -302,6 +306,8 @@ TDOG_SUITE(assert_suite)
 
     TDOG_TEST_CASE(assert_neq)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       // Boolean
       TDOG_ASSERT_NEQ(true, (5 == 5));
 
@@ -335,30 +341,40 @@ TDOG_SUITE(assert_suite)
 
     TDOG_TEST_CASE(assert_lt)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       TDOG_ASSERT_LT(tsqr(6), 36);
       TDOG_ASSERT_LT_MSG(tsqr(6), 36, "assert_lt_msg(36)");
     }
 
     TDOG_TEST_CASE(assert_lte)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       TDOG_ASSERT_LTE(tsqr(6), 35);
       TDOG_ASSERT_LTE_MSG(tsqr(6), 35, "assert_lte_msg(35)");
     }
 
     TDOG_TEST_CASE(assert_gt)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       TDOG_ASSERT_GT(tsqr(6), 36);
       TDOG_ASSERT_GT_MSG(tsqr(6), 36, "assert_gt_msg(36)");
     }
 
     TDOG_TEST_CASE(assert_gte)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       TDOG_ASSERT_GTE(tsqr(6), 37);
       TDOG_ASSERT_GTE_MSG(tsqr(6), 37, "assert_gte_msg(37)");
     }
 
     TDOG_TEST_CASE(assert_double_eq)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       // Erroneous delta
       TDOG_ASSERT_DOUBLE_EQ(5.0, 5.1, 0.02);
       TDOG_ASSERT_DOUBLE_EQ_MSG(5.0, 5.1, 0.02, "assert_double_eq_msg()");
@@ -366,6 +382,8 @@ TDOG_SUITE(assert_suite)
 
     TDOG_TEST_CASE(assert_double_neq)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       // Erroneous delta
       TDOG_ASSERT_DOUBLE_NEQ(5.0, 6.1, 2.0);
       TDOG_ASSERT_DOUBLE_NEQ_MSG(5.0, 6.1, 2.0, "assert_double_neq_msg()");
@@ -373,6 +391,8 @@ TDOG_SUITE(assert_suite)
 
     TDOG_TEST_CASE(assert_stric_eq)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       // We have swapped correct values for incorrect ones
       TDOG_ASSERT_STRIC_EQ("hello", "hola");
       TDOG_ASSERT_STRIC_EQ_MSG("hello", "hola", "assert_stric_eq_msg()");
@@ -380,6 +400,8 @@ TDOG_SUITE(assert_suite)
 
     TDOG_TEST_CASE(assert_stric_neq)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       // We have swapped correct values for incorrect ones
       TDOG_ASSERT_STRIC_NEQ("hello", "HELLO");
       TDOG_ASSERT_STRIC_NEQ_MSG("hello", "HELLO", "assert_stric_neq_msg()");
@@ -387,6 +409,8 @@ TDOG_SUITE(assert_suite)
 
     TDOG_TEST_CASE(assert_array_eq)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       // C array
       int a[] = {1, 4, 9};
       int c[] = {tsqr(1), tsqr(2), tsqr(4)};
@@ -405,6 +429,8 @@ TDOG_SUITE(assert_suite)
 
     TDOG_TEST_CASE(assert_array_neq)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       // C array
       int a[] = {1, 4, 9};
       int b[] = {tsqr(1), tsqr(2), tsqr(3)};
@@ -423,6 +449,8 @@ TDOG_SUITE(assert_suite)
 
     TDOG_TEST_CASE(assert_throw)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       // Must fail
       TDOG_ASSERT_THROW( throw_exception(false), std::runtime_error );
       TDOG_ASSERT_THROW( throw_exception(true), int );
@@ -446,6 +474,8 @@ TDOG_SUITE(assert_suite)
 
     TDOG_TEST_CASE(has_test_failed)
     {
+      TDOG_SET_CONTINUE_ON_FAIL(true);
+
       TDOG_ASSERT(false);
 
       if (TDOG_HAS_TEST_FAILED())
@@ -464,7 +494,7 @@ TDOG_SUITE(assert_suite)
   // ------------------------------
   TDOG_TEST_CASE(assert_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_positive.txt");
 
@@ -503,7 +533,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_not_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_not_positive.txt");
 
@@ -524,7 +554,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_eq_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_eq_positive.txt");
 
@@ -549,7 +579,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_neq_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_neq_positive.txt");
 
@@ -574,7 +604,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_lt_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_lt_positive.txt");
 
@@ -595,7 +625,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_lte_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_lte_positive.txt");
 
@@ -617,7 +647,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_gt_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_gt_positive.txt");
 
@@ -638,7 +668,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_gte_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_gte_positive.txt");
 
@@ -660,7 +690,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_double_eq_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_double_eq_positive.txt");
 
@@ -681,7 +711,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_double_neq_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_double_neq_positive.txt");
 
@@ -702,7 +732,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_stric_eq_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_stric_eq_positive.txt");
 
@@ -723,7 +753,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_stric_neq_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_stric_neq_positive.txt");
 
@@ -744,7 +774,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_array_eq_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_array_eq_positive.txt");
 
@@ -766,7 +796,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_array_neq_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_array_neq_positive.txt");
 
@@ -788,7 +818,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_throw_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_throw_positive.txt");
 
@@ -801,7 +831,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_no_throw_positive)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_no_throw_positive.txt");
 
@@ -817,7 +847,7 @@ TDOG_SUITE(assert_suite)
   // ------------------------------
   TDOG_TEST_CASE(assert_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_negative.txt");
 
@@ -874,7 +904,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_not_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_not_negative.txt");
 
@@ -895,7 +925,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_eq_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_eq_negative.txt");
 
@@ -920,7 +950,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_neq_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_neq_negative.txt");
 
@@ -944,7 +974,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_lt_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_lt_negative.txt");
 
@@ -964,7 +994,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_lte_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_lte_negative.txt");
 
@@ -984,7 +1014,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_gt_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_gt_negative.txt");
 
@@ -1004,7 +1034,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_gte_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_gte_negative.txt");
 
@@ -1024,7 +1054,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_double_eq_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_double_eq_negative.txt");
 
@@ -1044,7 +1074,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_double_neq_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_double_neq_negative.txt");
 
@@ -1064,7 +1094,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_stric_eq_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_stric_eq_negative.txt");
 
@@ -1084,7 +1114,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_stric_neq_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_stric_neq_negative.txt");
 
@@ -1104,7 +1134,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_array_eq_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_array_eq_negative.txt");
 
@@ -1125,7 +1155,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_array_neq_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_array_neq_negative.txt");
 
@@ -1146,7 +1176,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_throw_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_throw_negative.txt");
 
@@ -1159,7 +1189,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(assert_no_throw_negative)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_no_throw_negative.txt");
 
@@ -1172,7 +1202,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(force_fail)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_force_fail.txt");
 
@@ -1192,7 +1222,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(force_error)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_force_error.txt");
 
@@ -1212,7 +1242,7 @@ TDOG_SUITE(assert_suite)
 
   TDOG_TEST_CASE(has_test_failed)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/assert_has_test_failed.txt");
 

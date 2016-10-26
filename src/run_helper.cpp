@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : run_helper.cpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -10,6 +10,7 @@
 // INCLUDES
 //---------------------------------------------------------------------------
 #include "tdog/private/run_helper.hpp"
+#include "tdog_exception.hpp"
 #include "util.hpp"
 
 //---------------------------------------------------------------------------
@@ -24,7 +25,7 @@ const tdog::i64_t TDUR_RUNNING = -1;
 //---------------------------------------------------------------------------
 // CLASS run_helper : PRIVATE MEMBERS
 //---------------------------------------------------------------------------
-void run_helper::_raise_event(std::string s, event_type_t t, int lnum,
+void run_helper::_print_event(std::string s, event_type_t t, int lnum,
   const std::string& ename)
 {
   // Underlying event, such as assert pass, fail or error.
@@ -59,7 +60,15 @@ void run_helper::_raise_event(std::string s, event_type_t t, int lnum,
     m_event_log.push_back( event_item(s, t, lnum) );
   }
 
-  check_time_limit(lnum);
+  if (has_passed() && check_time_limit(lnum))
+  {
+    // Time limit expired
+    if (!m_continue_on_fail)
+    {
+      // Break out
+      throw tdog_exception();
+    }
+  }
 }
 //---------------------------------------------------------------------------
 void run_helper::_printf_int(const std::string& s, tdog::i64_t val, int lnum)
@@ -181,12 +190,12 @@ bool run_helper::_assert_impl(bool condition, bool eq, const std::string& s, int
 
   if (condition == eq)
   {
-    _raise_event(s, ET_PASS, lnum);
+    _print_event(s, ET_PASS, lnum);
   }
   else
   {
     ++m_assert_fails;
-    _raise_event(s, ET_FAIL, lnum);
+    _print_event(s, ET_FAIL, lnum);
   }
 
   return (condition == eq);
@@ -238,8 +247,8 @@ void run_helper::clear()
     m_assert_fails = 0;
     m_start_time = 0;
     m_duration = TDUR_NOT_RUN;
-    m_time_exceeded = false;
     m_time_warn_flag = false;
+    m_continue_on_fail = false;
     m_time_limit = 0;
     m_global_limit = 0;
     m_warning_limit = 0;
@@ -400,6 +409,11 @@ void run_helper::set_global_limit_exempt()
   m_global_limit = 0;
 }
 //---------------------------------------------------------------------------
+void run_helper::set_continue_on_fail(bool flag)
+{
+  m_continue_on_fail = flag;
+}
+//---------------------------------------------------------------------------
 void run_helper::sleep(int ms)
 {
   // Sleep for mininum number of milliseconds.
@@ -409,54 +423,58 @@ void run_helper::sleep(int ms)
 //---------------------------------------------------------------------------
 bool run_helper::check_time_limit(int lnum)
 {
-  // Check time not exceeded. Return true
-  // or throw tdog::test_time error.
-  bool check_this = (m_time_limit > 0 || m_global_limit > 0 || m_warning_limit > 0);
-
-  if (check_this && !m_time_exceeded &&
-    m_duration != TDUR_NOT_RUN &&
-    m_status != TS_DISABLED)
+  // Check time exceeded, return true if so.
+  if ((m_time_limit > 0 || m_global_limit > 0 || m_warning_limit > 0) &&
+    m_duration != TDUR_NOT_RUN && m_status != TS_DISABLED)
   {
     tdog::i64_t dur = duration();
 
     if (m_time_limit > 0 && dur > m_time_limit)
     {
-      // Local time constraint failure
-      m_time_exceeded = true;
-      _raise_event("local time constraint of " + int_to_str(m_time_limit) + " ms exceeded", ET_FAIL);
+      _print_event("local time constraint of " + int_to_str(m_time_limit) + " ms exceeded", ET_FAIL);
+      return true;
     }
     else
     if (m_global_limit > 0 && dur > m_global_limit)
     {
-      // Global time constraint failure
-      m_time_exceeded = true;
-      _raise_event("global time constraint of " + int_to_str(m_global_limit) + " ms exceeded", ET_FAIL);
+      _print_event("global time constraint of " + int_to_str(m_global_limit) + " ms exceeded", ET_FAIL);
+      return true;
     }
     else
     if (!m_time_warn_flag && m_warning_limit > 0 && dur > m_warning_limit)
     {
-      // Global time warning
       m_time_warn_flag = true;
-      _raise_event("time warning threshold of " + int_to_str(m_warning_limit) + " ms exceeded", ET_WARN);
+      _print_event("time warning threshold of " + int_to_str(m_warning_limit) + " ms exceeded", ET_WARN);
     }
   }
 
-  return m_time_exceeded;
+  return false;
 }
 //---------------------------------------------------------------------------
-void run_helper::raise_failure(const std::string& s, int lnum)
+void run_helper::raise_failure(const std::string& s, int lnum, bool throw_break)
 {
-  _raise_event(s, ET_FAIL, lnum);
+  _print_event(s, ET_FAIL, lnum);
+
+  if (throw_break && !m_continue_on_fail)
+  {
+    throw tdog_exception();
+  }
+}
+//---------------------------------------------------------------------------
+void run_helper::raise_error(const std::string& s, int lnum, const std::string& ename,
+  bool throw_break)
+{
+  _print_event(s, ET_ERROR, lnum, ename);
+
+  if (throw_break)
+  {
+    throw tdog_exception();
+  }
 }
 //---------------------------------------------------------------------------
 void run_helper::raise_warning(const std::string& s, int lnum)
 {
-  _raise_event(s, ET_WARN, lnum);
-}
-//---------------------------------------------------------------------------
-void run_helper::raise_error(const std::string& s, int lnum, const std::string& ename)
-{
-  _raise_event(s, ET_ERROR, lnum, ename);
+  _print_event(s, ET_WARN, lnum);
 }
 //---------------------------------------------------------------------------
 void run_helper::print(const std::string& s, int lnum)
@@ -464,7 +482,7 @@ void run_helper::print(const std::string& s, int lnum)
   // Underlying print method
   // This is pushed onto an event log storage container.
   // Calls raise event, which will also check the time.
-  _raise_event(s, ET_INFO, lnum);
+  _print_event(s, ET_INFO, lnum);
 }
 //---------------------------------------------------------------------------
 void run_helper::printf(const std::string& s, bool val, int lnum)
@@ -554,6 +572,12 @@ void run_helper::assert_true(bool condition, bool eq, const std::string& s, int 
   if ( !_assert_impl(condition, eq, s, lnum) )
   {
     this->printf("-cond = %b", condition, 0);
+
+    if (!m_continue_on_fail)
+    {
+      throw tdog_exception();
+    }
+
   }
 }
 //---------------------------------------------------------------------------
@@ -566,6 +590,11 @@ void run_helper::assert_double_equal(const double& exp, const double& act,
     else this->printf("-nxp = %f", exp, 0);
 
     this->printf("-act = %f", act, 0);
+
+    if (!m_continue_on_fail)
+    {
+      throw tdog_exception();
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -577,6 +606,11 @@ void run_helper::assert_stric_equal(const std::string& exp, const std::string& a
     if (eq) this->printf("-exp = %s", exp, 0);
     else this->printf("-nxp = %s", exp, 0);
     this->printf("-act = %s", act, 0);
+
+    if (!m_continue_on_fail)
+    {
+      throw tdog_exception();
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -589,6 +623,11 @@ void run_helper::assert_stric_equal(const std::wstring& exp, const std::wstring&
     else this->printf("-nxp = %s", exp, 0);
 
     this->printf("-act = %s", act, 0);
+
+    if (!m_continue_on_fail)
+    {
+      throw tdog_exception();
+    }
   }
 }
 //---------------------------------------------------------------------------

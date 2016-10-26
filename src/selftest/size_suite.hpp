@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : size_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ TDOG_SUITE(size_suite)
 {
   TDOG_TEST_CASE(test_sizes)
   {
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     TDOG_ASSERT_EQ(1, static_cast<int>(sizeof(tdog::i8_t)));
     TDOG_ASSERT_EQ(1, static_cast<int>(sizeof(tdog::u8_t)));

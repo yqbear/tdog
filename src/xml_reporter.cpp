@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : xml_reporter.cpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -282,12 +282,23 @@ void xml_reporter::gen_test(std::ostream&, const basic_test* tc)
     if (helper.has_ran())
     {
       // Output failures, errors and messages
+      bool sysout_need_close = false;
       std::size_t esz = helper.event_log().size();
 
       for(std::size_t n = 0; n < esz; ++n)
       {
         event_item eit = helper.event_log()[n];
         std::string msg = xml_esc(eit.msg_str);
+
+        // Determine if message, and hold value
+        bool is_sysout_msg = (verbose() || (eit.item_type != ET_PASS && eit.item_type != ET_INFO));
+
+        if (!is_sysout_msg && sysout_need_close)
+        {
+          // Close system-out
+          os << "</" << TEST_SYSTEMOUT_ELEM << ">\n";
+          sysout_need_close = false;
+        }
 
         if (eit.line_num > 0)
         {
@@ -313,9 +324,10 @@ void xml_reporter::gen_test(std::ostream&, const basic_test* tc)
           os << "/>\n";
         }
         else
-        if (verbose() || (eit.item_type != ET_PASS && eit.item_type != ET_INFO))
+        if (is_sysout_msg)
         {
-          // System out
+          // System-out
+          // Contents will be escaped, so we don't need CDATA.
           if (!m_comment_flag)
           {
             os << _indent() << "<!-- The '" << TEST_SYSTEMOUT_ELEM << "' element contains assertion and "
@@ -329,11 +341,32 @@ void xml_reporter::gen_test(std::ostream&, const basic_test* tc)
             msg = event_str(ET_WARN) + ": " + msg;
           }
 
-          os << _indent() << "<" << TEST_SYSTEMOUT_ELEM << ">";
+          if (!sysout_need_close)
+          {
+            // Element leader
+            os << _indent() << "<" << TEST_SYSTEMOUT_ELEM << ">";
+          }
+          else
+          {
+            // Add escaped LF followed by
+            // direct LF for XML readability.
+            os << "&#xD\n";
+          }
+
+          // Output the message.
           os << msg;
-          os << "</" << TEST_SYSTEMOUT_ELEM << ">\n";
+
+          // Flag that we need closure.
+          sysout_need_close = true;
         }
       }
+
+      if (sysout_need_close)
+      {
+        // Close trailing system-out
+        os << "</" << TEST_SYSTEMOUT_ELEM << ">\n";
+      }
+
     }
     else
     {

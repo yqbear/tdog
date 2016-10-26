@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : run_helper.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -68,8 +68,8 @@ class run_helper
   tdog::i64_t m_time_limit;
   tdog::i64_t m_global_limit;
   tdog::i64_t m_warning_limit;
-  bool m_time_exceeded;
   bool m_time_warn_flag;
+  bool m_continue_on_fail;
   std::string m_author;
 
   // Hold list of events
@@ -89,7 +89,7 @@ class run_helper
   std::vector<itag> m_itag_vect;
 
   // Event state with message
-  void _raise_event(std::string s, event_type_t t, int lnum = 0,
+  void _print_event(std::string s, event_type_t t, int lnum = 0,
     const std::string& ename = std::string());
 
   // Underlying common print statement implementations.
@@ -138,6 +138,7 @@ class run_helper
   bool set_enabled(bool flag);
   void set_time_limit(tdog::i64_t ms);
   void set_global_limit_exempt();
+  void set_continue_on_fail(bool flag);
   void sleep(int ms);
 
   // Check time not execeed.
@@ -145,10 +146,10 @@ class run_helper
   bool check_time_limit(int lnum = 0);
 
   // Test fail calls
-  void raise_failure(const std::string& s, int lnum);
+  void raise_failure(const std::string& s, int lnum, bool throw_break = false);
+  void raise_error(const std::string& s, int lnum, const std::string& ename = std::string(),
+    bool throw_break = false);
   void raise_warning(const std::string& s, int lnum);
-  void raise_error(const std::string& s, int lnum,
-    const std::string& ename = std::string());
 
   // ---------------------------
   // TEST PRINT STATEMENTS

@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : fixture_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -124,7 +124,7 @@ TDOG_SUITE(fixture_suite)
   {
     // Test suit setups/teardowns are called
     // in order, along with fixture's.
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/fixture_setup_positive.txt");
@@ -158,7 +158,7 @@ TDOG_SUITE(fixture_suite)
   TDOG_TEST_CASE(skip_on_fail)
   {
     // If suite setup fails, other tests skipped.
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/fixture_skip_on_fail.txt");
@@ -189,7 +189,7 @@ TDOG_SUITE(fixture_suite)
   TDOG_TEST_CASE(skip_on_error)
   {
     // If suite setup fails, other tests skipped.
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/fixture_skip_on_error.txt");
@@ -220,7 +220,7 @@ TDOG_SUITE(fixture_suite)
   TDOG_TEST_CASE(class_setup_fail)
   {
     // If fixture type fail, test not executed and teardown is not called.
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/fixture_class_setup_fail.txt");
@@ -245,7 +245,7 @@ TDOG_SUITE(fixture_suite)
   TDOG_TEST_CASE(class_test_throw)
   {
     // If test with fixture throws, teardown() still called.
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/fixture_class_test_throw.txt");
@@ -270,7 +270,7 @@ TDOG_SUITE(fixture_suite)
   TDOG_TEST_CASE(class_teardown_throw)
   {
     // If test with fixture throws in teardown(), this is logged.
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/fixture_class_teardown_throw.txt");
@@ -289,14 +289,14 @@ TDOG_SUITE(fixture_suite)
     TDOG_ASSERT_EQ("fix_c fix_setup fix_d ", internal_suite::log);
 
     // Check skip status
-    TDOG_ASSERT_EQ(tdog::TS_ERROR, tr.test_status("fixture_suite::internal_suite::fixture_teardown_throw"));
+    TDOG_ASSERT_EQ((int)tdog::TS_ERROR, (int)tr.test_status("fixture_suite::internal_suite::fixture_teardown_throw"));
 
     // Look in report
     std::stringstream stm;
     tr.generate_report(stm, tdog::RS_TEXT_VERBOSE);
     std::string txt = stm.str();
 
-    TDOG_ASSERT_NEQ(NPOS, txt.find("FAIL: Fixture teardown()"));
+    TDOG_ASSERT_NEQ(NPOS, txt.find("ERROR: Fixture teardown()"));
   }
 
   // fixture_suite

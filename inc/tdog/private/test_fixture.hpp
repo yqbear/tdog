@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : test_fixture.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -47,20 +47,19 @@ class test_fixture : public basic_test
     // This must be defined in header to allow generic template
     // type. The basic_test wraps this to catch any exceptions.
     bool setup_ok = false;
-
     CONTYPE container(&m_helper);
 
     try
     {
       // FIXTURE SETUP
       setup_ok = container.setup();
-      m_helper.assert_true(setup_ok, true, "Fixture setup()", 0);
-      if (!setup_ok) m_helper.raise_error("Fixture setup() failed", 0);
+
+      if (setup_ok) m_helper.print("OK: Fixture setup()", 0);
+      else m_helper.raise_error("Fixture setup()", 0, "");
     }
     catch(...)
     {
-      m_helper.assert_true(false, true, "Fixture setup()", 0);
-      throw; // <- rethrow for protected run, will set error state
+      m_helper.raise_error("Fixture setup()", 0, "");
     }
 
     // MAIN RUN
@@ -74,10 +73,17 @@ class test_fixture : public basic_test
       catch(...)
       {
         // Ensure teardown in the case of
-        // an implementation error, and re-throw
-        bool teardown_ok = true;
-        try { container.teardown(); } catch(...) { teardown_ok = false; }
-        m_helper.assert_true(teardown_ok, true, "Fixture teardown()", 0);
+        // an implementation error, and re-throw.
+        try
+        {
+          container.teardown();
+          m_helper.print("OK: Fixture teardown()", 0);
+        }
+        catch(...)
+        {
+          m_helper.raise_error("Fixture teardown()", 0, "");
+        }
+
         throw;
       }
 
@@ -85,12 +91,11 @@ class test_fixture : public basic_test
       try
       {
         container.teardown();
-        m_helper.assert_true(true, true, "Fixture teardown()", 0);
+        m_helper.print("OK: Fixture teardown()", 0);
       }
       catch(...)
       {
-        m_helper.assert_true(false, true, "Fixture teardown()", 0);
-        throw;
+        m_helper.raise_error("Fixture teardown()", 0, "");
       }
     }
   }

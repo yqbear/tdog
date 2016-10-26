@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : naming_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ TDOG_SUITE(naming_suite)
   TDOG_TEST_CASE(name_matching_impl)
   {
     // Test underlying matching routine.
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     // A test with a name in the default suite.
     // We must use suite_manager to make the test
@@ -122,7 +122,7 @@ TDOG_SUITE(naming_suite)
   TDOG_TEST_CASE(suite_matching_impl)
   {
     // Test underlying matching routine.
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     // A test with a name in a named suite
     tdog::suite_manager suite_open(true, "suite1::suite2", false);
@@ -151,7 +151,7 @@ TDOG_SUITE(naming_suite)
   TDOG_TEST_CASE(postive_tests)
   {
     // Run the internal tests
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr;
     tr.set_default_report(tdog::RS_NONE);
@@ -183,7 +183,7 @@ TDOG_SUITE(naming_suite)
   TDOG_TEST_CASE(negative_tests)
   {
     // Run the internal tests
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr;
     tr.set_default_report(tdog::RS_NONE);

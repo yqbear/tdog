@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : tdog.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -66,7 +66,7 @@
 /**
  * \brief Library version number.
  */
-#define TDOG_LIB_VERSION "3.0"
+#define TDOG_LIB_VERSION "3.1"
 
 /**
  * @}
@@ -101,7 +101,7 @@
  * \sa TDOG_SUITE(), TDOG_EXPLICIT_SUITE(), TDOG_TEST_PROTECTED(),
  * TDOG_DEFINE_REPEATED(), TDOG_TEST_FIXTURE(), TDOG_RUN()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Dummy doc
   #define TDOG_TEST_CASE(test_name)
 #else
@@ -212,7 +212,7 @@
  * \param[in] repeat_type Typename for the test implementation
  * \sa TDOG_TEST_REPEATED(), TDOG_TEST_PROTECTED(), TDOG_TEST_FIXTURE(), TDOG_TEST_CASE()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_DEFINE_REPEATED(repeat_type)
 #else
@@ -237,7 +237,7 @@
  * \param[in] user_type Typename of the thing we want to test
  * \sa TDOG_DEFINE_REPEATED()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_TEST_REPEATED(test_name, repeat_type, user_type)
 #else
@@ -285,7 +285,7 @@
  * \param[in] user_type Typename of the thing we want to test
  * \sa TDOG_TEST_REPEATED(), TDOG_TEST_PROTECTED(), TDOG_TEST_FIXTURE(), TDOG_TEST_CASE()
 */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Dummy doc
   #define TDOG_TEST_PROTECTED(test_name, user_type)
 #else
@@ -367,7 +367,7 @@
  * \param[in] user_type The base test type which to inherit
  * \sa TDOG_DEFINE_REPEATED(), TDOG_TEST_CASE(), TDOG_SUITE()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // This one drove me mental!
   #define TDOG_TEST_FIXTURE(test_name, user_type)
 #else
@@ -479,7 +479,7 @@
  * \sa TDOG_CLOSE_SUITE, TDOG_EXPLICIT_SUITE(), TDOG_TEST_CASE(),
  * TDOG_COUNTER_ID
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   // The volatile keyword is intended to prevented optimisation here.
   #define TDOG_SUITE(suite_name)
@@ -554,7 +554,7 @@
  * \sa TDOG_CLOSE_SUITE, TDOG_SUITE(), TDOG_TEST_CASE(),
  * tdog::runner, TDOG_COUNTER_ID
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   // The volatile keyword is intended to prevented optimisation here.
   #define TDOG_EXPLICIT_SUITE(suite_name)
@@ -593,7 +593,7 @@
  * indicate the problem.
  * \sa TDOG_SUITE()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   // The volatile keyword is intended to prevented optimisation here.
   #define TDOG_CLOSE_SUITE
@@ -631,7 +631,7 @@
  * Note. This macro can only be used within the scope of a test case.
  * \param[in] author_str Author name (i.e. a std::string or const char*)
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_AUTHOR(author_str)
 #else
@@ -669,7 +669,7 @@
  * \param[in] ms Integer time limit in milliseconds
  * \sa TDOG_SET_GLOBAL_LIMIT_EXEMPT(), TDOG_SET_GLOBAL_TIME_WARNING()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_TEST_TIMEOUT(ms)
 #else
@@ -679,17 +679,38 @@
 #endif
 
 /**
+ * \brief Sets whether a test should continue execution on failure. Default is false.
+ * \details Since version 3.1, test case execution will cease on the first failure.
+ * Calling this macro at the start of test will cause it to continue execution when
+ * an assert statement results in failure.
+ *
+ * Note. This macro can only be used within the scope of a test case.
+ * \param[in] flag Boolean flag indicating whether test should continue.
+ * \sa TDOG_HAS_TEST_FAILED(), TDOG_HAS_TEST_TIMED_OUT()
+ */
+#if defined(DOXYGEN_HIDEIMPL)
+  // Doc dummy
+  #define TDOG_SET_CONTINUE_ON_FAIL(flag)
+#else
+  // Actual
+  #define TDOG_SET_CONTINUE_ON_FAIL(flag) \
+  tdog_helper->set_continue_on_fail(flag)
+#endif
+
+/**
  * \brief Returns true if the time constraint for the test has been exceeded.
  * \details This macro may be called by the test implementation to determine
  * whether the local or global time constraint for the test has been exceeded.
- * This allows the test to determine whether it should cease further
- * testing.
+ * This allows the test to determine whether it should cease further testing.
+ *
+ * This macro is useful only where a testcase calls: TDOG_SET_CONTINUE_ON_FAIL(true),
+ * otherwise test execution ceases on failure.
  *
  * Note. This macro can only be used within the scope of a test case.
  * \return Boolean result
- * \sa TDOG_HAS_TEST_FAILED()
+ * \sa TDOG_HAS_TEST_FAILED(), TDOG_SET_CONTINUE_ON_FAIL()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_HAS_TEST_TIMED_OUT()
 #else
@@ -699,8 +720,7 @@
 #endif
 
 /**
- * \brief Designates the test as being exempt from the global
- * time limit setting.
+ * \brief Designates the test as being exempt from the global time limit setting.
  * \details In addition to setting local time limits for test cases
  * using the TDOG_SET_TEST_TIMEOUT() macro, it is possible to specify a
  * global time limit to be applied to all tests. For certain tests,
@@ -722,7 +742,7 @@
  * Note. This macro can only be used within the scope of a test case.
  * \sa TDOG_SET_TEST_TIMEOUT(), tdog::runner::set_global_time_limit()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_GLOBAL_LIMIT_EXEMPT()
 #else
@@ -743,7 +763,7 @@
  * \return Boolean result
  * \sa TDOG_HAS_TEST_TIMED_OUT()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_HAS_TEST_FAILED()
 #else
@@ -783,7 +803,7 @@
  * \param[in] condition The test condition
  * \sa TDOG_ASSERT_NOT(), TDOG_ASSERT_MSG(), TDOG_ASSERT_EQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT(condition)
 #else
@@ -800,7 +820,7 @@
  * \param[in] condition The test condition
  * \sa TDOG_ASSERT(), TDOG_ASSERT_NOT_MSG(), TDOG_ASSERT_NEQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_NOT(condition)
 #else
@@ -820,13 +840,13 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_NOT_MSG(), TDOG_ASSERT(), TDOG_ASSERT_NQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_MSG(condition, msg)
 #else
-  // Actual
-  #define TDOG_ASSERT_MSG(condition, msg) \
-  tdog_helper->assert_true(condition, true, msg, __LINE__)
+   // Actual
+   #define TDOG_ASSERT_MSG(condition, msg) \
+   tdog_helper->assert_true(condition, true, msg, __LINE__)
 #endif
 
 /**
@@ -837,7 +857,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_MSG(), TDOG_ASSERT_NOT(), TDOG_ASSERT_NEQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_NOT_MSG(condition, msg)
 #else
@@ -862,7 +882,7 @@
  * \param[in] act Actual value
  * \sa TDOG_ASSERT_NEQ(), TDOG_ASSERT_EQ_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_EQ(exp, act)
 #else
@@ -879,7 +899,7 @@
  * \param[in] act Actual value
  * \sa TDOG_ASSERT_EQ(), TDOG_ASSERT_NEQ_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_NEQ(nxp, act)
 #else
@@ -913,7 +933,7 @@
  * \param[in] lim Range limit
  * \sa TDOG_ASSERT_LTE(), TDOG_ASSERT_GT(), TDOG_ASSERT_LT_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_LT(act, lim)
 #else
@@ -947,7 +967,7 @@
  * \param[in] lim Range limit
  * \sa TDOG_ASSERT_LT(), TDOG_ASSERT_GT(), TDOG_ASSERT_LTE_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_LTE(act, lim)
 #else
@@ -958,7 +978,7 @@
 #endif
 
 /**
- * \brief Asserts that 'act' is greater than 'exp' (test fails if not).
+ * \brief Asserts that 'act' is greater than 'lim' (test fails if not).
  * \details Input values must support both the equality and "greater than" operators.
  *
  * Where the condition is not met, a failure will be recorded in the test report.
@@ -981,7 +1001,7 @@
  * \param[in] lim Range limit
  * \sa TDOG_ASSERT_GTE(), TDOG_ASSERT_LT(), TDOG_ASSERT_GT_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_GT(act, lim)
 #else
@@ -992,7 +1012,7 @@
 #endif
 
 /**
- * \brief Asserts that 'act' is greater than or equal to 'exp' (test fails if not).
+ * \brief Asserts that 'act' is greater than or equal to 'lim' (test fails if not).
  * \details Input values must support both the equality and "greater than" operators.
  *
  * Where the condition is not met, a failure will be recorded in the test report.
@@ -1015,7 +1035,7 @@
  * \param[in] lim Range limit
  * \sa TDOG_ASSERT_LT(), TDOG_ASSERT_GT(), TDOG_ASSERT_LTE_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_GTE(act, lim)
 #else
@@ -1038,7 +1058,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_NEQ_MSG(), TDOG_ASSERT_EQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_EQ_MSG(exp, act, msg)
 #else
@@ -1056,7 +1076,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_EQ_MSG(), TDOG_ASSERT_NEQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_NEQ_MSG(nxp, act, msg)
 #else
@@ -1078,7 +1098,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_LTE_MSG(), TDOG_ASSERT_LT()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_LT_MSG(act, lim, msg)
 #else
@@ -1100,7 +1120,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_LT_MSG(), TDOG_ASSERT_LTE()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_LTE_MSG(act, lim, msg)
 #else
@@ -1122,7 +1142,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_GTE_MSG(), TDOG_ASSERT_GT()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_GT_MSG(act, lim, msg)
 #else
@@ -1144,7 +1164,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_GT_MSG(), TDOG_ASSERT_GTE()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_GTE_MSG(act, lim, msg)
 #else
@@ -1179,7 +1199,7 @@
  * \param[in] delta Tolerance
  * \sa TDOG_ASSERT_DOUBLE_NEQ(), TDOG_ASSERT_DOUBLE_EQ_MSG(), TDOG_ASSERT_EQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_DOUBLE_EQ(exp, act, delta)
 #else
@@ -1199,7 +1219,7 @@
  * \param[in] delta Tolerance
  * \sa TDOG_ASSERT_DOUBLE_EQ(), TDOG_ASSERT_DOUBLE_NEQ_MSG(), TDOG_ASSERT_NEQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_DOUBLE_NEQ(nxp, act, delta)
 #else
@@ -1224,7 +1244,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_DOUBLE_NEQ_MSG(), TDOG_ASSERT_DOUBLE_EQ(), TDOG_ASSERT_EQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_DOUBLE_EQ_MSG(exp, act, delta, msg)
 #else
@@ -1244,7 +1264,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_DOUBLE_EQ_MSG(), TDOG_ASSERT_DOUBLE_NEQ(), TDOG_ASSERT_NEQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_DOUBLE_NEQ_MSG(nxp, act, delta, msg)
 #else
@@ -1273,7 +1293,7 @@
  * \param[in] act Actual value
  * \sa TDOG_ASSERT_STRIC_NEQ(), TDOG_ASSERT_STRIC_EQ_MSG(), TDOG_ASSERT_EQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_STRIC_EQ(exp, act)
 #else
@@ -1302,7 +1322,7 @@
  * \param[in] act Actual value
  * \sa TDOG_ASSERT_STRIC_EQ(), TDOG_ASSERT_STRIC_NEQ_MSG(), TDOG_ASSERT_NEQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_STRIC_NEQ(nxp, act)
 #else
@@ -1334,7 +1354,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_STRIC_NEQ_MSG(), TDOG_ASSERT_STRIC_EQ(), TDOG_ASSERT_EQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_STRIC_EQ_MSG(exp, act, msg)
 #else
@@ -1362,7 +1382,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_STRIC_EQ_MSG(), TDOG_ASSERT_STRIC_NEQ(), TDOG_ASSERT_NEQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_STRIC_NEQ_MSG(nxp, act, msg)
 #else
@@ -1405,7 +1425,7 @@
  * \param[in] size Number of elements to be compared
  * \sa TDOG_ASSERT_ARRAY_NEQ(), TDOG_ASSERT_ARRAY_EQ_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_ARRAY_EQ(exp, act, size)
 #else
@@ -1434,7 +1454,7 @@
  * \param[in] size Number of elements to be compared
  * \sa TDOG_ASSERT_ARRAY_EQ(), TDOG_ASSERT_ARRAY_NEQ_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_ARRAY_NEQ(nxp, act, size)
 #else
@@ -1464,7 +1484,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_ARRAY_NEQ_MSG(), TDOG_ASSERT_ARRAY_EQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_ARRAY_EQ_MSG(exp, act, size, msg)
 #else
@@ -1490,7 +1510,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_ASSERT_ARRAY_EQ_MSG(), TDOG_ASSERT_ARRAY_NEQ()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_ARRAY_NEQ_MSG(nxp, act, size, msg)
 #else
@@ -1516,7 +1536,7 @@
  * \param[in] e_type Test exception type
  * \sa TDOG_ASSERT_NO_THROW()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_THROW(exprn, e_type)
 #else
@@ -1549,7 +1569,7 @@
  * \param[in] exprn Test expression
  * \sa TDOG_ASSERT_THROW()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ASSERT_NO_THROW(exprn)
 #else
@@ -1579,13 +1599,13 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_PRINT(), TDOG_TEST_WARNING(), TDOG_TEST_ERROR(), TDOG_ASSERT_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_TEST_FAIL(msg)
 #else
   // Actual
   #define TDOG_TEST_FAIL(msg) \
-  tdog_helper->raise_failure(msg, __LINE__)
+  tdog_helper->raise_failure(msg, __LINE__, true)
 #endif
 
 /**
@@ -1621,13 +1641,13 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_TEST_FAIL(), TDOG_PRINT(), TDOG_TEST_WARNING(), TDOG_ASSERT_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_TEST_ERROR(msg)
 #else
   // Actual
   #define TDOG_TEST_ERROR(msg) \
-  tdog_helper->raise_error(msg, __LINE__); return
+  tdog_helper->raise_error(msg, __LINE__, "", true)
 #endif
 
 /**
@@ -1660,7 +1680,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_PRINTF(), TDOG_TEST_WARNING(), TDOG_TEST_ERROR(), TDOG_ASSERT_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_PRINT(msg)
 #else
@@ -1761,7 +1781,7 @@
  * \param[in] val Value
  * \sa TDOG_PRINT(), TDOG_TEST_WARNING(), TDOG_TEST_ERROR(), TDOG_ASSERT_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_PRINTF(msg, val)
 #else
@@ -1780,7 +1800,7 @@
  * \param[in] msg Message passed as std::string or C-style string
  * \sa TDOG_TEST_FAIL(), TDOG_PRINT(), TDOG_TEST_ERROR(), TDOG_ASSERT_MSG()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_TEST_WARNING(msg)
 #else
@@ -1875,7 +1895,7 @@
  * \return Number of test failures, or tdog::RAN_NONE (-1) if no tests performed
  * \sa TDOG_RUN_ALL(), TDOG_SET_RUN_SORTED()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_RUN(names)
 #else
@@ -1888,7 +1908,7 @@
  * \return Number of test failures, or tdog::RAN_NONE (-1) if no tests performed
  * \sa TDOG_RUN()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_RUN_ALL()
 #else
@@ -1946,7 +1966,7 @@
  * \return Number of test failures, or RUN_NONE (-1) if no tests performed
  * \sa TDOG_RUN()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_RUN_CMD(argc, argv, def_run)
 #else
@@ -1999,7 +2019,7 @@
  * \param[in] full_sort Set true for a fully sorted run order (default is false)
  * \sa TDOG_RUN()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_RUN_SORTED(full_sort)
 #else
@@ -2028,7 +2048,7 @@
  * \param[in] name Project name string
  * \sa TDOG_SET_PROJECT_VERSION(), TDOG_SET_PROJECT_DESC()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_PROJECT_NAME(name)
 #else
@@ -2057,7 +2077,7 @@
  * \param[in] version Project version string
  * \sa TDOG_SET_PROJECT_NAME(), TDOG_SET_PROJECT_DESC()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_PROJECT_VERSION(version)
 #else
@@ -2073,7 +2093,7 @@
  * \param[in] desc Project description string
  * \sa TDOG_SET_PROJECT_NAME(), TDOG_SET_PROJECT_VERSION()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_PROJECT_DESC(desc)
 #else
@@ -2097,7 +2117,7 @@
  * \param[in] ms Time constaint in milliseconds
  * \sa TDOG_SET_TEST_TIMEOUT(), TDOG_SET_GLOBAL_TIME_WARNING()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_GLOBAL_TIMEOUT(ms)
 #else
@@ -2120,7 +2140,7 @@
  * \param[in] ms Time in milliseconds
  * \sa TDOG_SET_GLOBAL_TIMEOUT()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_GLOBAL_TIME_WARNING(ms)
 #else
@@ -2173,7 +2193,7 @@
  * \param[in] style Report style
  * \sa TDOG_ADD_REPORT()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_DEFAULT_REPORT(style)
 #else
@@ -2232,7 +2252,7 @@
  * \param[in] filename Output report filename string
  * \sa TDOG_SET_DEFAULT_REPORT()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_ADD_REPORT(style, filename)
 #else
@@ -2298,7 +2318,7 @@
  * \return Statistical value
  * \sa TDOG_TEST_STATUS()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_STATISTIC_COUNT(type, name)
 #else
@@ -2333,7 +2353,7 @@
  * \return Test result state of type std::test_status_t
  * \sa TDOG_STATISTIC_COUNT()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_TEST_STATUS(name)
 #else
@@ -2401,7 +2421,7 @@
  * \return The number of tests updated
  * \sa TDOG_SKIP_TEST()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SET_ENABLED(names, flag)
 #else
@@ -2439,7 +2459,7 @@
  * Note. This macro can only be used within the scope of a test case.
  * \sa TDOG_SET_ENABLED()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_SKIP_TEST()
 #else
@@ -2462,7 +2482,7 @@
  * Note. This macro can only be used within the scope of a test case.
  * \param[in] ms Integer number of milliseconds
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_TEST_SLEEP(ms)
 #else
@@ -2530,7 +2550,7 @@
  * \return Pointer to underlying test object.
  * \sa tdog::runner::register_test()
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   // Doc dummy
   #define TDOG_GET_TCPTR(name)
 #else
@@ -2614,7 +2634,7 @@ multiple files). See TDOG_COUNTER_ID macro for information.
  * \details This is defined automatically, but can be overridden if pre-defined to a
  * custom string value.
  */
-#if defined(DOXYGEN) && defined(DOXYGEN_HIDEIMPL)
+#if defined(DOXYGEN_HIDEIMPL)
   #define TDOG_PLATOS <platform os>
 #else
   #if !defined(TDOG_PLATOS)

@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : timing_suite.hpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -118,7 +118,7 @@ TDOG_SUITE(timing_suite)
   {
     // Test sleep call with value less than 1 sec
     // This does not use our own sleep call.
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/timing_local_timeout.txt");
@@ -132,7 +132,7 @@ TDOG_SUITE(timing_suite)
   TDOG_TEST_CASE(short_sleep)
   {
     // Test sleep call with value less than 1 sec
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/timing_short_sleep.txt");
@@ -146,7 +146,7 @@ TDOG_SUITE(timing_suite)
   TDOG_TEST_CASE(long_sleep)
   {
     // Test sleep call with value more than 1 sec
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/timing_long_sleep.txt");
@@ -160,7 +160,7 @@ TDOG_SUITE(timing_suite)
   TDOG_TEST_CASE(global_timeout)
   {
     // Test sleep call with value more than 1 sec
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/timing_global_timeout.txt");
@@ -177,7 +177,7 @@ TDOG_SUITE(timing_suite)
   TDOG_TEST_CASE(global_exempt)
   {
     // Test sleep call with value more than 1 sec
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/timing_global_exempt.txt");
@@ -193,7 +193,7 @@ TDOG_SUITE(timing_suite)
   TDOG_TEST_CASE(time_warning)
   {
     // Test sleep call with value more than 1 sec
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/timing_time_warning.txt");
@@ -217,7 +217,7 @@ TDOG_SUITE(timing_suite)
   TDOG_TEST_CASE(check_limit)
   {
     // Test sleep call with value more than 1 sec
-    TDOG_SET_AUTHOR("Andy Thomas");
+    TDOG_SET_AUTHOR("Kuiper");
 
     tdog::runner tr(tdog::RS_NONE);
     tr.add_report(tdog::RS_TEXT_VERBOSE, "./reports/internal/timing_check_limit.txt");

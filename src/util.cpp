@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------------
 // PROJECT      : TDOG
 // FILENAME     : util.cpp
-// COPYRIGHT    : Andy Thomas (c) 2016
-// WEBSITE      : bigangrydog.com
+// COPYRIGHT    : Kuiper (c) 2016
+// WEBSITE      : kuiper.zone
 // LICENSE      : Apache 2.0
 //---------------------------------------------------------------------------
 
@@ -247,8 +247,8 @@ std::string tdog::wide_to_str(const std::string& s)
 //---------------------------------------------------------------------------
 std::string tdog::encode_esc(const std::string& s)
 {
-  // Replaces common character values with escape sequences and
-  // returns the result.
+  // Replaces common character values with escape
+  // sequences and returns the result.
   std::size_t sz = s.size();
 
   std::string rslt;
